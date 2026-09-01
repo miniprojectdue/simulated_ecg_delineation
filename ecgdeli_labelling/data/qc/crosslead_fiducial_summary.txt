@@ -1,0 +1,38 @@
+Per-fiducial cross-lead consistency QC   reference = V2/V5 mean, anchor = QRS onset
+(record,lead) units evaluated : 202176
+
+fiducial  tol_ms  median    p95    p98   flag%    category
+Pon          135    27.0  109.0  135.0   1.95%    boundary
+Ppk          127    22.0  101.0  127.0   1.95%        peak
+Poff          97    18.0   74.0   97.0   1.94%    boundary
+Q              0     0.0    0.0    0.0   0.00%        peak
+R             34     3.0   25.0   34.0   1.94%        peak
+S             47     9.0   36.0   47.0   1.89%        peak
+J             47     9.0   36.0   47.0   1.89%    boundary
+Ton          108    20.0   80.0  108.0   1.98%    boundary
+Tpk          168    17.0  109.0  168.0   1.99%        peak
+Toff         172    17.0  113.0  172.0   1.99%    boundary
+
+flag% by fiducial by lead (worst leads):
+  Pon  : aVL 4.9%, III 3.5%, V3 3.4%, I 2.2%
+  Ppk  : aVL 4.6%, III 4.4%, V3 3.0%, aVF 2.2%
+  Poff : V3 4.6%, aVL 3.8%, III 3.8%, aVF 1.9%
+  Q    : aVR 0.0%, aVL 0.0%, aVF 0.0%, V6 0.0%
+  R    : aVL 3.9%, III 3.4%, I 3.4%, V1 2.2%
+  S    : I 3.8%, aVL 3.6%, III 3.1%, aVR 2.1%
+  J    : I 3.8%, aVL 3.6%, III 3.1%, aVR 2.1%
+  Ton  : I 5.2%, aVL 4.7%, aVR 4.1%, III 2.3%
+  Tpk  : I 5.2%, aVL 5.1%, aVR 3.8%, V6 2.3%
+  Toff : I 5.4%, aVL 5.4%, aVR 3.4%, III 2.4%
+
+R-peak flag% by disease class:
+  mi      :  2.96%  (2771/93672)
+  lbbb    :  2.90%  (453/15600)
+  sinus   :  1.13%  (176/15600)
+  lae     :  1.11%  (173/15600)
+  iab     :  1.10%  (164/14928)
+  fam     :  0.97%  (151/15600)
+  rbbb    :  0.14%  (22/15576)
+  avblock :  0.06%  (9/15600)
+
+any-fiducial flag: 18713 (9.26%)
