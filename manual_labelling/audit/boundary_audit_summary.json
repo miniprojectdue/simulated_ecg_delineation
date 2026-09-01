@@ -1,0 +1,57 @@
+{
+  "records_in_master": 16848,
+  "records_with_a_boundary_set_by_an_unreviewable_lead": 2961,
+  "boundary_driving_units_total": 3829,
+  "per_fiducial_records": {
+    "p_offset_sample": 808,
+    "t_offset_sample": 1465,
+    "qrs_onset_sample": 988,
+    "qrs_offset_sample": 1016,
+    "p_onset_sample": 603,
+    "t_onset_sample": 624
+  },
+  "per_fiducial_resolvable": {
+    "p_onset_sample": 16848,
+    "qrs_onset_sample": 16848,
+    "t_onset_sample": 16848,
+    "p_offset_sample": 16848,
+    "qrs_offset_sample": 16848,
+    "t_offset_sample": 16848
+  },
+  "units_by_margin": {
+    ">=  0 ms (any)": 3829,
+    ">=  4 ms": 3369,
+    ">= 10 ms": 2736,
+    ">= 20 ms": 2219,
+    ">= 40 ms": 1632
+  },
+  "units_by_qc_status": {
+    "critical": 1774,
+    "clean": 1454,
+    "minor": 601
+  },
+  "units_by_class": {
+    "iab": 157,
+    "fam": 135,
+    "mi": 2795,
+    "rbbb": 146,
+    "lbbb": 304,
+    "sinus": 159,
+    "avblock": 38,
+    "lae": 95
+  },
+  "units_by_lead": {
+    "aVL": 847,
+    "I": 717,
+    "III": 564,
+    "V6": 331,
+    "aVR": 283,
+    "V1": 266,
+    "V4": 170,
+    "aVF": 152,
+    "V3": 146,
+    "II": 134,
+    "V2": 120,
+    "V5": 99
+  }
+}

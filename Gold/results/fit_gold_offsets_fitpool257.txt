@@ -1,0 +1,88 @@
+Gold calibration offsets
+========================
+records reviewed: 254 of 254 in the calibration half
+residuals beyond 200 ms excluded as wrong-feature rather than mis-placed
+
+A positive offset means the reviewer moved the landmark LATER than the label had it.
+Add the offset to the label to remove the bias. An interval marked no in the
+distinguishable column has a confidence interval covering zero, so there is no bias
+to correct and that landmark should be left alone.
+
+GLOBAL
+landmark                 n    offset             95% CI signif    MAE pre   MAE post
+p_onset_sample         247      0.0  [   0.0,    0.0]     no       7.8       7.8
+p_peak_sample          247      0.0  [   0.0,    0.0]     no       7.0       7.0
+p_offset_sample        247      0.0  [   0.0,    0.0]     no      11.8      11.8
+qrs_onset_sample       254     -3.0  [  -4.0,   -2.0]    yes       8.3       8.0
+q_peak_sample           92     26.0  [  22.0,   29.0]    yes      24.7      15.9
+r_peak_sample          221      0.0  [   0.0,    0.0]     no       9.1       9.1
+s_peak_sample          146      0.0  [   0.0,    0.0]     no       6.8       6.8
+qrs_offset_sample      254      0.0  [   0.0,    0.0]     no       4.0       4.0
+t_onset_sample         254      0.0  [   0.0,    0.0]     no       4.2       4.2
+t_peak_sample          254      0.0  [   0.0,    0.0]     no       2.3       2.3
+t_offset_sample        254      0.0  [   0.0,    0.0]     no       3.6       3.6
+
+PER CLASS, boundaries only
+
+  p_onset_sample
+    avblock    n= 32      0.0 ms  [  -6.0,    0.0]  no   MAE   7.1 ->   7.1
+    fam        n= 36      0.0 ms  [   0.0,    0.0]  no   MAE  18.2 ->  18.2
+    iab        n= 33      0.0 ms  [   0.0,    0.0]  no   MAE   5.6 ->   5.6
+    lae        n= 29      0.0 ms  [   0.0,    0.0]  no   MAE   5.9 ->   5.9
+    lbbb       n= 32      0.0 ms  [   0.0,    0.0]  no   MAE   0.6 ->   0.6
+    mi         n= 25      0.0 ms  [ -18.0,    0.0]  no   MAE  17.8 ->  17.8
+    rbbb       n= 29      0.0 ms  [   0.0,    0.0]  no   MAE   5.5 ->   5.5
+    sinus      n= 31      0.0 ms  [   0.0,    0.0]  no   MAE   2.0 ->   2.0
+
+  p_offset_sample
+    iab        n= 33    -36.0 ms  [ -42.0,  -14.0]  yes  MAE  27.0 ->  17.9
+    fam        n= 36    -19.0 ms  [ -30.0,   -2.0]  yes  MAE  20.6 ->  16.8
+    avblock    n= 32      0.0 ms  [   0.0,    6.0]  no   MAE   6.6 ->   6.6
+    lae        n= 29      0.0 ms  [ -28.0,    0.0]  no   MAE  19.0 ->  19.0
+    lbbb       n= 32      0.0 ms  [   0.0,    0.0]  no   MAE   2.8 ->   2.8
+    mi         n= 25      0.0 ms  [   0.0,    0.0]  no   MAE  11.3 ->  11.3
+    rbbb       n= 29      0.0 ms  [   0.0,    0.0]  no   MAE   1.8 ->   1.8
+    sinus      n= 31      0.0 ms  [   0.0,    0.0]  no   MAE   3.4 ->   3.4
+
+  qrs_onset_sample
+    lae        n= 29    -14.0 ms  [ -20.0,   -6.0]  yes  MAE  13.6 ->   8.8
+    fam        n= 36     -4.0 ms  [  -5.0,    0.0]  no   MAE   5.2 ->   4.8
+    iab        n= 33     -4.0 ms  [  -8.0,   -4.0]  yes  MAE   7.8 ->   6.5
+    lbbb       n= 32     -2.0 ms  [  -4.0,    0.0]  no   MAE   5.8 ->   5.7
+    rbbb       n= 30     -2.0 ms  [  -4.0,   -2.0]  yes  MAE   4.2 ->   3.1
+    sinus      n= 31     -2.0 ms  [  -4.0,    0.0]  no   MAE   4.8 ->   4.7
+    avblock    n= 32      0.0 ms  [  -2.0,    0.0]  no   MAE   7.4 ->   7.4
+    mi         n= 31      0.0 ms  [ -10.0,    0.0]  no   MAE  18.4 ->  18.4
+
+  qrs_offset_sample
+    avblock    n= 32      0.0 ms  [   0.0,    0.0]  no   MAE   2.1 ->   2.1
+    fam        n= 36      0.0 ms  [   0.0,    0.0]  no   MAE   2.2 ->   2.2
+    iab        n= 33      0.0 ms  [   0.0,    0.0]  no   MAE   1.5 ->   1.5
+    lae        n= 29      0.0 ms  [   0.0,    0.0]  no   MAE   0.6 ->   0.6
+    lbbb       n= 32      0.0 ms  [   0.0,    0.0]  no   MAE   1.4 ->   1.4
+    mi         n= 31      0.0 ms  [   0.0,   12.0]  no   MAE  14.7 ->  14.7
+    rbbb       n= 30      0.0 ms  [   0.0,    5.0]  no   MAE   8.5 ->   8.5
+    sinus      n= 31      0.0 ms  [   0.0,    0.0]  no   MAE   2.0 ->   2.0
+
+  t_onset_sample
+    avblock    n= 32      0.0 ms  [   0.0,    0.0]  no   MAE   1.6 ->   1.6
+    fam        n= 36      0.0 ms  [   0.0,    0.0]  no   MAE   1.9 ->   1.9
+    iab        n= 33      0.0 ms  [   0.0,    0.0]  no   MAE   1.9 ->   1.9
+    lae        n= 29      0.0 ms  [   0.0,    0.0]  no   MAE   4.4 ->   4.4
+    lbbb       n= 32      0.0 ms  [   0.0,    0.0]  no   MAE   7.4 ->   7.4
+    mi         n= 31      0.0 ms  [   0.0,    0.0]  no   MAE   9.6 ->   9.6
+    rbbb       n= 30      0.0 ms  [   0.0,    0.0]  no   MAE   6.3 ->   6.3
+    sinus      n= 31      0.0 ms  [   0.0,    0.0]  no   MAE   1.5 ->   1.5
+
+  t_offset_sample
+    avblock    n= 32      0.0 ms  [   0.0,    0.0]  no   MAE   5.8 ->   5.8
+    fam        n= 36      0.0 ms  [   0.0,    0.0]  no   MAE   2.9 ->   2.9
+    iab        n= 33      0.0 ms  [   0.0,    2.0]  no   MAE   2.5 ->   2.5
+    lbbb       n= 32      0.0 ms  [   0.0,    0.0]  no   MAE   0.9 ->   0.9
+    mi         n= 31      0.0 ms  [   0.0,    0.0]  no   MAE   5.0 ->   5.0
+    rbbb       n= 30      0.0 ms  [   0.0,    0.0]  no   MAE   2.7 ->   2.7
+    sinus      n= 31      0.0 ms  [   0.0,    0.0]  no   MAE   2.5 ->   2.5
+    lae        n= 29      6.0 ms  [   0.0,    8.0]  no   MAE   6.7 ->   6.5
+
+These are CANDIDATES. None of them is adopted until validate_gold_offsets.py has
+scored them on the test half, which this script has never seen.

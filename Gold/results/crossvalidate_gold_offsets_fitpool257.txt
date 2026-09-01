@@ -1,0 +1,59 @@
+Gold offset cross validation, 5 folds over the reviewed half
+=============================================================
+Every record is scored by an offset fitted on the other folds, so no record
+contributes to the offset that judges it. A landmark is adopted only if a majority
+of folds found a bias of at least 2.0 ms with a bootstrap interval clear of zero,
+and the pooled out of sample absolute error did not get significantly worse.
+Landmarks on the never adopt list are held back whatever the numbers say, and that
+list currently holds q_peak_sample.
+
+landmark                 n    bias [95% CI]  residual     MAE0     MAEcv      dMAE  adopted
+p_onset_sample         247    0.0 [  0.0,  0.0]       0.0      7.8       7.8       0.0  none
+p_peak_sample          247    0.0 [  0.0,  0.0]       0.0      7.0       7.0       0.0  none
+p_offset_sample        247    0.0 [  0.0,  0.0]       0.0     11.8      11.8       0.0  none
+qrs_onset_sample       254   -3.0 [ -4.0, -2.0]       0.0      8.3       8.0      -0.3  global
+q_peak_sample           92   26.0 [ 22.0, 29.0]      26.0     24.7      24.7       0.0  none (vetoed)
+r_peak_sample          221    0.0 [  0.0,  0.0]       0.0      9.1       9.1       0.0  none
+s_peak_sample          146    0.0 [  0.0,  0.0]       0.0      6.8       6.8       0.0  none
+qrs_offset_sample      254    0.0 [  0.0,  0.0]       0.0      4.0       4.0       0.0  none
+t_onset_sample         254    0.0 [  0.0,  0.0]       0.0      4.3       4.3       0.0  none
+t_peak_sample          254    0.0 [  0.0,  0.0]       0.0      2.3       2.3       0.0  none
+t_offset_sample        254    0.0 [  0.0,  0.0]       0.0      3.6       3.6       0.0  none
+
+1 of 11 landmarks earned a correction. The rest keep their reconciled label.
+Boundaries only, mean absolute residual bias 0.5 ms before and 0.0 ms after,
+and mean absolute error 6.6 ms before and 6.6 ms after.
+
+The offsets written out are the ones fitted on the full reviewed half, since that is
+the better estimate of each number. What is cross validated is the decision to adopt
+them at all, and the fold to fold spread reported below is the evidence that the
+number does not depend on which records happened to be in the fit.
+
+LIMITATION. These records are not a fresh sample. They were reviewed knowing which
+landmarks the estimator was likely to get wrong, so the benefit reported here is an
+upper bound. A genuinely untouched half would be stronger evidence and the design
+still holds 400 such records in gold_worklist_test_seeded.csv if there is ever time.
+
+NOTE p_onset_sample: fold offsets ranged 0.0 to 0.0 ms, a spread of 0.0 ms, and the fold votes were none, none, none, none, none.
+
+NOTE p_peak_sample: fold offsets ranged 0.0 to 0.0 ms, a spread of 0.0 ms, and the fold votes were none, none, none, none, none.
+
+NOTE p_offset_sample: fold offsets ranged 0.0 to 0.0 ms, a spread of 0.0 ms, and the fold votes were none, none, none, none, none.
+
+NOTE qrs_onset_sample: fold offsets ranged -4.0 to -2.0 ms, a spread of 2.0 ms, and the fold votes were none, class, global, global, global.
+
+NOTE q_peak_sample: held out error fell, but the landmark is on the never adopt list and the apparent bias is the no Q placeholder rather than a measurement, so nothing is applied.
+
+NOTE q_peak_sample: fold offsets ranged 24.0 to 26.0 ms, a spread of 2.0 ms, and the fold votes were global, global, global, global, global.
+
+NOTE r_peak_sample: fold offsets ranged 0.0 to 0.0 ms, a spread of 0.0 ms, and the fold votes were none, none, none, none, none.
+
+NOTE s_peak_sample: fold offsets ranged 0.0 to 0.0 ms, a spread of 0.0 ms, and the fold votes were none, none, none, none, none.
+
+NOTE qrs_offset_sample: fold offsets ranged 0.0 to 0.0 ms, a spread of 0.0 ms, and the fold votes were none, none, none, none, none.
+
+NOTE t_onset_sample: fold offsets ranged 0.0 to 0.0 ms, a spread of 0.0 ms, and the fold votes were none, none, none, none, none.
+
+NOTE t_peak_sample: fold offsets ranged 0.0 to 0.0 ms, a spread of 0.0 ms, and the fold votes were none, none, none, none, none.
+
+NOTE t_offset_sample: fold offsets ranged 0.0 to 0.0 ms, a spread of 0.0 ms, and the fold votes were none, none, none, none, none.
