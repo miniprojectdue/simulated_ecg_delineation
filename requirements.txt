@@ -1,0 +1,19 @@
+# Delineation pipeline - Python dependencies.
+#
+# Only five third-party packages are imported anywhere in this repository. The
+# labelling and curation scripts need pandas, numpy and pyyaml. the modelling
+# scripts add torch. the statistics and figure scripts add matplotlib.
+#
+#   python3 -m venv project_version && source project_version/bin/activate
+#   pip install -r requirements.txt
+#
+# Torch is left unpinned so pip resolves the right build for the platform. On
+# Apple Silicon the default wheel carries the MPS backend, which train.py already
+# looks for alongside CUDA. On a CUDA machine, install the matching build from
+# https://pytorch.org/get-started/locally/ instead of taking the default wheel.
+
+numpy>=1.24
+pandas>=2.0
+pyyaml>=6.0
+torch>=2.0
+matplotlib>=3.7
