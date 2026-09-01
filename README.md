@@ -1,7 +1,5 @@
 # Machine Learning Enabled Extraction of Electrocardiogram Biomarkers for Drug-Induced Cardiotoxicity Screening
 
-Implementation accompanying the MSc dissertation (Candidate 1103577, University of Oxford,
-Trinity Term 2026).
 
 This folder is a **code-and-metrics** snapshot of the working project. It carries every script,
 every configuration file and every evaluation metric behind Chapter 4, in the same directory
