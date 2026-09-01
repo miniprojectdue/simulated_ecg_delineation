@@ -1,0 +1,16 @@
+# Tail-background-weight arm, paired with treatments/pretrain_toffset_fix.yaml.
+#
+# One change against the primary: the supervised isolated-tail background samples carry a CE
+# weight of 5.0, which exactly cancels the 0.2 background class weight and restores parity with
+# the wave classes on the tail. Evidence for the arm, measured on the previous checkpoint: 80%
+# of isolated units overran the true T offset (+6 ms median at every tail length), and the
+# T-vs-background logit margin in the overrun samples was a median 0.52 nats, the signature of
+# marginal calls made where the mistake is cheap. Run alongside the primary, compare with
+# scripts/paired.py; do not fold into the primary without that comparison.
+inherit: ml_modelling/configs/treatments/pretrain_toffset_fix.yaml
+
+run:
+  name: pretrain_toffset_fix_tailweight
+
+loss:
+  tail_background_weight: 5.0

@@ -1,0 +1,423 @@
+{
+  "all 100 recordings": {
+    "qrs_onset": {
+      "baseline_mae_ms": 4.411666666666666,
+      "baseline_ci": [
+        4.171666666666667,
+        4.636708333333334
+      ],
+      "network_mae_ms": 6.765,
+      "network_ci": [
+        4.68,
+        9.935083333333333
+      ],
+      "paired_diff_ms": 2.3533333333333335,
+      "paired_ci": [
+        0.2549583333333334,
+        5.520374999999994
+      ],
+      "verdict": "favours v3"
+    },
+    "qrs_offset": {
+      "baseline_mae_ms": 12.278333333333334,
+      "baseline_ci": [
+        10.756541666666667,
+        13.960041666666667
+      ],
+      "network_mae_ms": 38.25833333333333,
+      "network_ci": [
+        33.65495833333333,
+        43.35008333333332
+      ],
+      "paired_diff_ms": 25.98,
+      "paired_ci": [
+        20.835,
+        31.3485
+      ],
+      "verdict": "favours v3"
+    },
+    "t_onset": {
+      "baseline_mae_ms": 61.83333333333332,
+      "baseline_ci": [
+        57.972020833333346,
+        65.88595833333333
+      ],
+      "network_mae_ms": 58.095323232323224,
+      "network_ci": [
+        50.204724747474756,
+        66.53254242424242
+      ],
+      "paired_diff_ms": -3.9832525252525257,
+      "paired_ci": [
+        -11.545052272727272,
+        3.8420459595959584
+      ],
+      "verdict": "not significant"
+    },
+    "t_peak": {
+      "baseline_mae_ms": 1.354166666666667,
+      "baseline_ci": [
+        0.8133125000000001,
+        2.0366875
+      ],
+      "network_mae_ms": 37.04375757575758,
+      "network_ci": [
+        30.029964393939395,
+        44.29057727272727
+      ],
+      "paired_diff_ms": 35.68681313131313,
+      "paired_ci": [
+        28.733488510101008,
+        42.968524621212104
+      ],
+      "verdict": "favours v3"
+    },
+    "t_offset": {
+      "baseline_mae_ms": 26.314166666666665,
+      "baseline_ci": [
+        21.53491666666667,
+        31.33439583333334
+      ],
+      "network_mae_ms": 38.684969696969695,
+      "network_ci": [
+        36.42858333333333,
+        41.01580984848485
+      ],
+      "paired_diff_ms": 12.332136363636362,
+      "paired_ci": [
+        7.051735984848485,
+        17.845235984848486
+      ],
+      "verdict": "favours v3"
+    },
+    "_boundary": {
+      "baseline_mae_ms": 14.334722222222222,
+      "network_mae_ms": 27.907777777777778,
+      "paired_diff_ms": 13.573055555555557,
+      "paired_ci": [
+        10.676236111111113,
+        16.65252777777778
+      ],
+      "verdict": "favours v3",
+      "n_records": 100,
+      "landmarks": [
+        "qrs_onset",
+        "qrs_offset",
+        "t_offset"
+      ]
+    },
+    "bio_qrs_duration": {
+      "baseline_mae_ms": 11.886666666666667,
+      "network_mae_ms": 40.16,
+      "paired_diff_ms": 28.27333333333333,
+      "paired_ci": [
+        23.483041666666665,
+        32.97558333333332
+      ],
+      "verdict": "favours v3"
+    },
+    "bio_qt_interval": {
+      "baseline_mae_ms": 27.4225,
+      "network_mae_ms": 43.479727272727274,
+      "paired_diff_ms": 16.007257575757578,
+      "paired_ci": [
+        10.028579924242424,
+        21.930338636363622
+      ],
+      "verdict": "favours v3"
+    },
+    "bio_t_peak_to_end": {
+      "baseline_mae_ms": 26.600000000000005,
+      "network_mae_ms": 58.80991919191918,
+      "paired_diff_ms": 32.16447474747475,
+      "paired_ci": [
+        25.158026641414143,
+        38.893582828282824
+      ],
+      "verdict": "favours v3"
+    }
+  },
+  "matched, 60 recordings": {
+    "qrs_onset": {
+      "baseline_mae_ms": 4.497222222222223,
+      "baseline_ci": [
+        4.20548611111111,
+        4.791736111111112
+      ],
+      "network_mae_ms": 8.175,
+      "network_ci": [
+        4.775,
+        13.397847222222213
+      ],
+      "paired_diff_ms": 3.6777777777777785,
+      "paired_ci": [
+        0.25548611111111125,
+        8.911527777777774
+      ],
+      "verdict": "favours v3"
+    },
+    "qrs_offset": {
+      "baseline_mae_ms": 11.266666666666667,
+      "baseline_ci": [
+        9.655555555555557,
+        13.058333333333334
+      ],
+      "network_mae_ms": 40.225,
+      "network_ci": [
+        33.98041666666667,
+        47.51701388888889
+      ],
+      "paired_diff_ms": 28.95833333333333,
+      "paired_ci": [
+        22.388680555555556,
+        36.40284722222222
+      ],
+      "verdict": "favours v3"
+    },
+    "t_onset": {
+      "baseline_mae_ms": 70.83333333333334,
+      "baseline_ci": [
+        65.97711805555556,
+        75.84604166666666
+      ],
+      "network_mae_ms": 52.36439393939394,
+      "network_ci": [
+        41.54188131313132,
+        64.87015782828281
+      ],
+      "paired_diff_ms": -18.53901515151515,
+      "paired_ci": [
+        -27.67838699494949,
+        -8.383639520202022
+      ],
+      "verdict": "favours network"
+    },
+    "t_peak": {
+      "baseline_mae_ms": 1.0000000000000002,
+      "baseline_ci": [
+        0.5541666666666667,
+        1.5819791666666663
+      ],
+      "network_mae_ms": 21.053282828282825,
+      "network_ci": [
+        12.406540404040403,
+        30.804393939393933
+      ],
+      "paired_diff_ms": 20.054419191919195,
+      "paired_ci": [
+        11.405527146464646,
+        29.880132575757568
+      ],
+      "verdict": "favours v3"
+    },
+    "t_offset": {
+      "baseline_mae_ms": 38.26527777777778,
+      "baseline_ci": [
+        31.60958333333333,
+        44.814062499999984
+      ],
+      "network_mae_ms": 37.06237373737374,
+      "network_ci": [
+        33.290119949494944,
+        40.89837121212121
+      ],
+      "paired_diff_ms": -1.2863636363636366,
+      "paired_ci": [
+        -8.484245580808082,
+        6.028955176767675
+      ],
+      "verdict": "not significant"
+    },
+    "_boundary": {
+      "baseline_mae_ms": 18.009722222222226,
+      "network_mae_ms": 28.638425925925926,
+      "paired_diff_ms": 10.628703703703703,
+      "paired_ci": [
+        6.411412037037037,
+        15.478252314814814
+      ],
+      "verdict": "favours v3",
+      "n_records": 60,
+      "landmarks": [
+        "qrs_onset",
+        "qrs_offset",
+        "t_offset"
+      ]
+    },
+    "bio_qrs_duration": {
+      "baseline_mae_ms": 10.986111111111109,
+      "network_mae_ms": 40.60000000000001,
+      "paired_diff_ms": 29.613888888888884,
+      "paired_ci": [
+        24.480555555555554,
+        34.63347222222222
+      ],
+      "verdict": "favours v3"
+    },
+    "bio_qt_interval": {
+      "baseline_mae_ms": 39.87361111111112,
+      "network_mae_ms": 42.18181818181818,
+      "paired_diff_ms": 2.2287878787878785,
+      "paired_ci": [
+        -6.062856691919191,
+        10.798093434343425
+      ],
+      "verdict": "not significant"
+    },
+    "bio_t_peak_to_end": {
+      "baseline_mae_ms": 38.06805555555556,
+      "network_mae_ms": 53.48181818181818,
+      "paired_diff_ms": 15.328914141414142,
+      "paired_ci": [
+        5.999719065656564,
+        24.55547664141414
+      ],
+      "verdict": "favours v3"
+    }
+  },
+  "ischemia, 40 recordings": {
+    "qrs_onset": {
+      "baseline_mae_ms": 4.283333333333333,
+      "baseline_ci": [
+        3.9083333333333337,
+        4.654166666666667
+      ],
+      "network_mae_ms": 4.65,
+      "network_ci": [
+        4.25,
+        5.1
+      ],
+      "paired_diff_ms": 0.3666666666666666,
+      "paired_ci": [
+        -0.225,
+        1.0667708333333321
+      ],
+      "verdict": "not significant"
+    },
+    "qrs_offset": {
+      "baseline_mae_ms": 13.795833333333334,
+      "baseline_ci": [
+        10.958229166666667,
+        16.954166666666666
+      ],
+      "network_mae_ms": 35.30833333333334,
+      "network_ci": [
+        29.041666666666664,
+        42.28760416666667
+      ],
+      "paired_diff_ms": 21.5125,
+      "paired_ci": [
+        13.391666666666666,
+        29.683749999999996
+      ],
+      "verdict": "favours v3"
+    },
+    "t_onset": {
+      "baseline_mae_ms": 48.333333333333336,
+      "baseline_ci": [
+        44.49369791666666,
+        52.11911458333333
+      ],
+      "network_mae_ms": 66.69171717171717,
+      "network_ci": [
+        56.10347095959596,
+        77.71129545454545
+      ],
+      "paired_diff_ms": 17.850391414141416,
+      "paired_ci": [
+        8.019291666666668,
+        27.651854482323223
+      ],
+      "verdict": "favours v3"
+    },
+    "t_peak": {
+      "baseline_mae_ms": 1.8854166666666667,
+      "baseline_ci": [
+        0.75828125,
+        3.4813020833333326
+      ],
+      "network_mae_ms": 61.029469696969706,
+      "network_ci": [
+        53.121977272727264,
+        68.69202651515153
+      ],
+      "paired_diff_ms": 59.13540404040405,
+      "paired_ci": [
+        51.2774696969697,
+        66.81258049242423
+      ],
+      "verdict": "favours v3"
+    },
+    "t_offset": {
+      "baseline_mae_ms": 8.3875,
+      "baseline_ci": [
+        7.724947916666666,
+        9.05625
+      ],
+      "network_mae_ms": 41.118863636363635,
+      "network_ci": [
+        40.078001893939394,
+        42.46795075757575
+      ],
+      "paired_diff_ms": 32.75988636363636,
+      "paired_ci": [
+        31.392011363636367,
+        34.407016098484846
+      ],
+      "verdict": "favours v3"
+    },
+    "_boundary": {
+      "baseline_mae_ms": 8.822222222222221,
+      "network_mae_ms": 26.811805555555555,
+      "paired_diff_ms": 17.989583333333336,
+      "paired_ci": [
+        15.287135416666667,
+        20.716024305555557
+      ],
+      "verdict": "favours v3",
+      "n_records": 40,
+      "landmarks": [
+        "qrs_onset",
+        "qrs_offset",
+        "t_offset"
+      ]
+    },
+    "bio_qrs_duration": {
+      "baseline_mae_ms": 13.2375,
+      "network_mae_ms": 39.5,
+      "paired_diff_ms": 26.2625,
+      "paired_ci": [
+        17.437395833333333,
+        35.1709375
+      ],
+      "verdict": "favours v3"
+    },
+    "bio_qt_interval": {
+      "baseline_mae_ms": 8.745833333333334,
+      "network_mae_ms": 45.426590909090905,
+      "paired_diff_ms": 36.674962121212126,
+      "paired_ci": [
+        35.32201515151516,
+        38.202078598484846
+      ],
+      "verdict": "favours v3"
+    },
+    "bio_t_peak_to_end": {
+      "baseline_mae_ms": 9.397916666666665,
+      "network_mae_ms": 66.8020707070707,
+      "paired_diff_ms": 57.41781565656565,
+      "paired_ci": [
+        53.0018125,
+        61.88195107323232
+      ],
+      "verdict": "favours v3"
+    }
+  },
+  "armA_boundary_all": {
+    "mae_ms": 19.020277777777775,
+    "ci": [
+      17.786881944444445,
+      20.41181944444444
+    ]
+  }
+}

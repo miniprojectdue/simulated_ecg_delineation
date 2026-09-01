@@ -1,0 +1,52 @@
+
+==============================================================================
+ablate_ensemble_external (posterior ensemble of 3) on smith2026_test_units_qrsanchor.csv
+==============================================================================
+
+Segmentation
+  class            prec      rec       f1      iou      support
+  background     0.8454   0.6114   0.7096   0.5499        79096
+  p                 nan      nan      nan      nan            0
+  qrs            0.8128   0.9925   0.8937   0.8078        54626
+  t              0.8868   0.9375   0.9114   0.8373       171522
+  mean IoU over the three wave classes  0.8225
+  mean F1 over the three wave classes   0.9025
+  per sample accuracy                   0.8628
+
+Fiducials, all timings in milliseconds
+  landmark        sens    prec     bias      mae       sd      p95    w25ms
+  p_onset          nan     nan      nan      nan      nan      nan      nan
+  p_peak           nan     nan      nan      nan      nan      nan      nan
+  p_offset         nan     nan      nan      nan      nan      nan      nan
+  qrs_onset      1.000   1.000    -4.36     4.36     1.49     8.00    1.000
+  q_peak         0.698   0.901    -0.81     1.05     2.84     2.00    0.996
+  r_peak         0.771   0.720   -11.86    11.94    17.26    48.00    0.772
+  s_peak         0.843   0.542    -3.65     5.02    15.01    36.90    0.933
+  qrs_offset     0.753   0.753    16.12    17.54    15.24    48.00    0.753
+  t_onset        0.596   0.596   -19.30    30.32    36.21    84.10    0.596
+  t_peak         0.838   0.838    16.57    19.55    47.49   140.00    0.838
+  t_offset       0.693   0.693    -1.99    22.50    31.21    62.00    0.693
+  boundary MAE 18.68 ms, peak MAE 9.39 ms
+
+Timing response, prediction regressed on reference
+  landmark         slope         r   pred SD ms    ref SD ms
+  p_onset            nan       nan          nan          nan
+  p_offset           nan       nan          nan          nan
+  qrs_onset        1.000     0.976         6.87         6.71
+  qrs_offset       0.292     0.310        12.59        13.33
+  t_onset          0.027     0.086        11.23        35.40
+  t_offset         0.758     0.948        71.13        88.95
+
+Biomarkers, all values in milliseconds
+  biomarker              bias        mae         sd   coverage
+  qrs_duration          20.48      21.20      15.29      1.000
+  qt_interval            2.37      23.38      31.57      1.000
+  t_duration            17.31      40.66      48.93      1.000
+  t_peak_to_end        -18.57      35.48      49.66      1.000
+
+
+geometry and truncation
+  window runs 66 samples past the last landmark (median)
+  beat centre sits 62 samples from the crop centre, IQR 42
+  predicted T offset on / past window edge  31 / 347 of 1200
+  predicted T offset on / past read edge    0 / 0 of 1200

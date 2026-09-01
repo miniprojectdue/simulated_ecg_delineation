@@ -1,0 +1,206 @@
+[21:07:57] run ablate_freeze_encoder on mps
+[21:07:58] environment {'python': '3.14.2', 'numpy': '2.5.1', 'torch': '2.13.0', 'cuda_available': False, 'pandas': '3.0.5'}
+[21:07:58] train units 275 over 257 records, val units 45 over 44 records
+[21:07:58] geometry validation uses 44 units over 44 records at tails 150, 300, 450, 640, 850 ms
+[21:07:58] initialised from /Users/johnthuo/Desktop/Delineation/ml_modelling/checkpoints/pretrain_toffset_fix_tailweight/best.pt, 0 missing and 0 unexpected keys
+[21:07:58] model unet1d, 7669001 parameters of which 2885769 trainable, freeze policy encoder
+[21:08:23]   geometry tail 150 ms  T MAE 8.55 ms  bias -1.00  coverage 1.000  slope 0.906  r 0.943
+[21:08:23]   geometry tail 300 ms  T MAE 8.73 ms  bias -0.73  coverage 1.000  slope 0.904  r 0.942
+[21:08:23]   geometry tail 450 ms  T MAE 8.73 ms  bias -0.73  coverage 1.000  slope 0.904  r 0.942
+[21:08:24]   geometry tail 640 ms  T MAE 8.73 ms  bias -0.73  coverage 1.000  slope 0.904  r 0.942
+[21:08:24]   geometry tail 850 ms  T MAE 8.73 ms  bias -0.73  coverage 1.000  slope 0.904  r 0.942
+[21:08:24] epoch 1  train loss 0.2281  val loss 0.3583  val mean IoU 0.8604  boundary MAE 8.96 ms  25.4 s
+[21:08:24]   P head and segmentation by structural cell, training split
+[21:08:24]     A normal           n    85   P head correct 100.0%   segmentation emits P  98.8%
+[21:08:24]     B truncated + P    n    56   P head correct  96.4%   segmentation emits P  96.4%
+[21:08:24]     C full, P masked   n    39   P head correct  94.9%   segmentation emits P   5.1%
+[21:08:24]     D QRS edge         n    95   P head correct  85.3%   segmentation emits P  18.9%
+[21:08:24]   new best val_boundary_mae 8.955556, checkpoint written
+[21:08:24]   new best geometry score 13.520, best_geometry.pt written
+[21:08:48]   geometry tail 150 ms  T MAE 8.91 ms  bias -0.36  coverage 1.000  slope 0.902  r 0.942
+[21:08:48]   geometry tail 300 ms  T MAE 9.14 ms  bias -0.14  coverage 1.000  slope 0.900  r 0.939
+[21:08:48]   geometry tail 450 ms  T MAE 9.18 ms  bias +0.09  coverage 1.000  slope 0.900  r 0.941
+[21:08:48]   geometry tail 640 ms  T MAE 9.09 ms  bias -0.09  coverage 1.000  slope 0.901  r 0.941
+[21:08:48]   geometry tail 850 ms  T MAE 9.09 ms  bias -0.09  coverage 1.000  slope 0.901  r 0.941
+[21:08:48] epoch 2  train loss 0.1811  val loss 0.3269  val mean IoU 0.8656  boundary MAE 8.40 ms  24.2 s
+[21:08:48]   P head and segmentation by structural cell, training split
+[21:08:48]     A normal           n    80   P head correct 100.0%   segmentation emits P 100.0%
+[21:08:48]     B truncated + P    n    63   P head correct 100.0%   segmentation emits P 100.0%
+[21:08:48]     C full, P masked   n    24   P head correct  91.7%   segmentation emits P   4.2%
+[21:08:48]     D QRS edge         n   108   P head correct  80.6%   segmentation emits P  16.7%
+[21:08:48]   new best val_boundary_mae 8.400000, checkpoint written
+[21:09:12]   geometry tail 150 ms  T MAE 9.05 ms  bias +0.50  coverage 1.000  slope 0.904  r 0.945
+[21:09:12]   geometry tail 300 ms  T MAE 9.23 ms  bias +0.68  coverage 1.000  slope 0.899  r 0.942
+[21:09:12]   geometry tail 450 ms  T MAE 9.09 ms  bias +0.73  coverage 1.000  slope 0.897  r 0.945
+[21:09:13]   geometry tail 640 ms  T MAE 9.00 ms  bias +0.64  coverage 1.000  slope 0.903  r 0.945
+[21:09:13]   geometry tail 850 ms  T MAE 9.00 ms  bias +0.64  coverage 1.000  slope 0.903  r 0.945
+[21:09:13] epoch 3  train loss 0.1951  val loss 0.3113  val mean IoU 0.8648  boundary MAE 8.47 ms  24.3 s
+[21:09:13]   P head and segmentation by structural cell, training split
+[21:09:13]     A normal           n    75   P head correct 100.0%   segmentation emits P 100.0%
+[21:09:13]     B truncated + P    n    64   P head correct 100.0%   segmentation emits P 100.0%
+[21:09:13]     C full, P masked   n    26   P head correct  84.6%   segmentation emits P  11.5%
+[21:09:13]     D QRS edge         n   110   P head correct  89.1%   segmentation emits P  13.6%
+[21:09:36]   geometry tail 150 ms  T MAE 9.09 ms  bias +0.18  coverage 1.000  slope 0.898  r 0.941
+[21:09:37]   geometry tail 300 ms  T MAE 9.14 ms  bias +0.32  coverage 1.000  slope 0.898  r 0.942
+[21:09:37]   geometry tail 450 ms  T MAE 9.14 ms  bias +0.41  coverage 1.000  slope 0.897  r 0.942
+[21:09:37]   geometry tail 640 ms  T MAE 9.00 ms  bias +0.27  coverage 1.000  slope 0.899  r 0.943
+[21:09:37]   geometry tail 850 ms  T MAE 9.00 ms  bias +0.27  coverage 1.000  slope 0.899  r 0.943
+[21:09:37] epoch 4  train loss 0.1577  val loss 0.2907  val mean IoU 0.8667  boundary MAE 8.48 ms  24.2 s
+[21:09:37]   P head and segmentation by structural cell, training split
+[21:09:37]     A normal           n    68   P head correct 100.0%   segmentation emits P 100.0%
+[21:09:37]     B truncated + P    n    58   P head correct 100.0%   segmentation emits P  98.3%
+[21:09:37]     C full, P masked   n    39   P head correct  89.7%   segmentation emits P   7.7%
+[21:09:37]     D QRS edge         n   110   P head correct  90.0%   segmentation emits P   9.1%
+[21:10:01]   geometry tail 150 ms  T MAE 9.09 ms  bias +0.18  coverage 1.000  slope 0.899  r 0.941
+[21:10:01]   geometry tail 300 ms  T MAE 9.23 ms  bias +0.50  coverage 1.000  slope 0.898  r 0.941
+[21:10:01]   geometry tail 450 ms  T MAE 9.18 ms  bias +0.55  coverage 1.000  slope 0.898  r 0.942
+[21:10:01]   geometry tail 640 ms  T MAE 9.23 ms  bias +0.50  coverage 1.000  slope 0.898  r 0.941
+[21:10:01]   geometry tail 850 ms  T MAE 9.23 ms  bias +0.50  coverage 1.000  slope 0.898  r 0.941
+[21:10:01] epoch 5  train loss 0.1246  val loss 0.2800  val mean IoU 0.8634  boundary MAE 8.66 ms  24.1 s
+[21:10:01]   P head and segmentation by structural cell, training split
+[21:10:01]     A normal           n    80   P head correct 100.0%   segmentation emits P 100.0%
+[21:10:01]     B truncated + P    n    51   P head correct  98.0%   segmentation emits P  98.0%
+[21:10:01]     C full, P masked   n    38   P head correct  92.1%   segmentation emits P   7.9%
+[21:10:01]     D QRS edge         n   106   P head correct  90.6%   segmentation emits P  10.4%
+[21:10:25]   geometry tail 150 ms  T MAE 9.00 ms  bias +0.27  coverage 1.000  slope 0.895  r 0.943
+[21:10:25]   geometry tail 300 ms  T MAE 9.18 ms  bias +0.45  coverage 1.000  slope 0.898  r 0.942
+[21:10:25]   geometry tail 450 ms  T MAE 9.18 ms  bias +0.45  coverage 1.000  slope 0.897  r 0.942
+[21:10:25]   geometry tail 640 ms  T MAE 9.14 ms  bias +0.41  coverage 1.000  slope 0.897  r 0.942
+[21:10:25]   geometry tail 850 ms  T MAE 9.14 ms  bias +0.41  coverage 1.000  slope 0.897  r 0.942
+[21:10:25] epoch 6  train loss 0.1308  val loss 0.2724  val mean IoU 0.8656  boundary MAE 8.64 ms  24.2 s
+[21:10:25]   P head and segmentation by structural cell, training split
+[21:10:25]     A normal           n    67   P head correct 100.0%   segmentation emits P  98.5%
+[21:10:25]     B truncated + P    n    64   P head correct  98.4%   segmentation emits P  98.4%
+[21:10:25]     C full, P masked   n    32   P head correct  84.4%   segmentation emits P  15.6%
+[21:10:25]     D QRS edge         n   112   P head correct  83.9%   segmentation emits P   9.8%
+[21:10:49]   geometry tail 150 ms  T MAE 8.91 ms  bias +0.27  coverage 1.000  slope 0.900  r 0.944
+[21:10:49]   geometry tail 300 ms  T MAE 8.95 ms  bias +0.32  coverage 1.000  slope 0.900  r 0.944
+[21:10:49]   geometry tail 450 ms  T MAE 9.05 ms  bias +0.41  coverage 1.000  slope 0.897  r 0.944
+[21:10:50]   geometry tail 640 ms  T MAE 9.05 ms  bias +0.41  coverage 1.000  slope 0.897  r 0.944
+[21:10:50]   geometry tail 850 ms  T MAE 9.05 ms  bias +0.41  coverage 1.000  slope 0.897  r 0.944
+[21:10:50] epoch 7  train loss 0.1268  val loss 0.2638  val mean IoU 0.8607  boundary MAE 8.85 ms  24.1 s
+[21:10:50]   P head and segmentation by structural cell, training split
+[21:10:50]     A normal           n    74   P head correct 100.0%   segmentation emits P  98.6%
+[21:10:50]     B truncated + P    n    47   P head correct  97.9%   segmentation emits P  97.9%
+[21:10:50]     C full, P masked   n    37   P head correct  94.6%   segmentation emits P   5.4%
+[21:10:50]     D QRS edge         n   117   P head correct  87.2%   segmentation emits P   5.1%
+[21:11:13]   geometry tail 150 ms  T MAE 8.68 ms  bias +0.05  coverage 1.000  slope 0.901  r 0.946
+[21:11:13]   geometry tail 300 ms  T MAE 8.86 ms  bias +0.23  coverage 1.000  slope 0.902  r 0.945
+[21:11:14]   geometry tail 450 ms  T MAE 8.91 ms  bias +0.27  coverage 1.000  slope 0.902  r 0.945
+[21:11:14]   geometry tail 640 ms  T MAE 8.86 ms  bias +0.23  coverage 1.000  slope 0.902  r 0.945
+[21:11:14]   geometry tail 850 ms  T MAE 8.86 ms  bias +0.23  coverage 1.000  slope 0.902  r 0.945
+[21:11:14] epoch 8  train loss 0.1269  val loss 0.2539  val mean IoU 0.8614  boundary MAE 8.81 ms  24.1 s
+[21:11:14]   P head and segmentation by structural cell, training split
+[21:11:14]     A normal           n    73   P head correct 100.0%   segmentation emits P 100.0%
+[21:11:14]     B truncated + P    n    60   P head correct 100.0%   segmentation emits P  96.7%
+[21:11:14]     C full, P masked   n    38   P head correct  89.5%   segmentation emits P  10.5%
+[21:11:14]     D QRS edge         n   104   P head correct  90.4%   segmentation emits P   2.9%
+[21:11:37]   geometry tail 150 ms  T MAE 8.77 ms  bias -0.23  coverage 1.000  slope 0.900  r 0.944
+[21:11:38]   geometry tail 300 ms  T MAE 8.91 ms  bias +0.00  coverage 1.000  slope 0.902  r 0.943
+[21:11:38]   geometry tail 450 ms  T MAE 8.95 ms  bias +0.05  coverage 1.000  slope 0.902  r 0.943
+[21:11:38]   geometry tail 640 ms  T MAE 8.95 ms  bias +0.05  coverage 1.000  slope 0.902  r 0.943
+[21:11:38]   geometry tail 850 ms  T MAE 8.95 ms  bias +0.05  coverage 1.000  slope 0.902  r 0.943
+[21:11:38] epoch 9  train loss 0.1145  val loss 0.2505  val mean IoU 0.8629  boundary MAE 8.80 ms  24.0 s
+[21:11:38]   P head and segmentation by structural cell, training split
+[21:11:38]     A normal           n    72   P head correct 100.0%   segmentation emits P 100.0%
+[21:11:38]     B truncated + P    n    55   P head correct  96.4%   segmentation emits P  96.4%
+[21:11:38]     C full, P masked   n    34   P head correct  94.1%   segmentation emits P   5.9%
+[21:11:38]     D QRS edge         n   114   P head correct  85.1%   segmentation emits P   4.4%
+[21:12:02]   geometry tail 150 ms  T MAE 8.55 ms  bias -0.64  coverage 1.000  slope 0.906  r 0.945
+[21:12:02]   geometry tail 300 ms  T MAE 8.59 ms  bias -0.50  coverage 1.000  slope 0.904  r 0.945
+[21:12:02]   geometry tail 450 ms  T MAE 8.59 ms  bias -0.32  coverage 1.000  slope 0.904  r 0.945
+[21:12:02]   geometry tail 640 ms  T MAE 8.55 ms  bias -0.45  coverage 1.000  slope 0.905  r 0.945
+[21:12:02]   geometry tail 850 ms  T MAE 8.55 ms  bias -0.45  coverage 1.000  slope 0.905  r 0.945
+[21:12:02] epoch 10  train loss 0.1061  val loss 0.2503  val mean IoU 0.8630  boundary MAE 8.84 ms  24.0 s
+[21:12:02]   P head and segmentation by structural cell, training split
+[21:12:02]     A normal           n    57   P head correct 100.0%   segmentation emits P 100.0%
+[21:12:02]     B truncated + P    n    61   P head correct  96.7%   segmentation emits P  95.1%
+[21:12:02]     C full, P masked   n    32   P head correct  90.6%   segmentation emits P   9.4%
+[21:12:02]     D QRS edge         n   125   P head correct  88.0%   segmentation emits P   2.4%
+[21:12:02]   new best geometry score 13.406, best_geometry.pt written
+[21:12:26]   geometry tail 150 ms  T MAE 8.55 ms  bias -0.36  coverage 1.000  slope 0.899  r 0.946
+[21:12:26]   geometry tail 300 ms  T MAE 8.64 ms  bias -0.18  coverage 1.000  slope 0.903  r 0.945
+[21:12:26]   geometry tail 450 ms  T MAE 8.59 ms  bias -0.14  coverage 1.000  slope 0.903  r 0.946
+[21:12:26]   geometry tail 640 ms  T MAE 8.55 ms  bias -0.18  coverage 1.000  slope 0.904  r 0.946
+[21:12:27]   geometry tail 850 ms  T MAE 8.55 ms  bias -0.18  coverage 1.000  slope 0.904  r 0.946
+[21:12:27] epoch 11  train loss 0.1006  val loss 0.2482  val mean IoU 0.8613  boundary MAE 9.03 ms  24.1 s
+[21:12:27]   P head and segmentation by structural cell, training split
+[21:12:27]     A normal           n    60   P head correct 100.0%   segmentation emits P 100.0%
+[21:12:27]     B truncated + P    n    74   P head correct  98.6%   segmentation emits P  98.6%
+[21:12:27]     C full, P masked   n    31   P head correct  96.8%   segmentation emits P   3.2%
+[21:12:27]     D QRS edge         n   110   P head correct  90.0%   segmentation emits P   1.8%
+[21:12:50]   geometry tail 150 ms  T MAE 8.32 ms  bias -0.77  coverage 1.000  slope 0.906  r 0.946
+[21:12:50]   geometry tail 300 ms  T MAE 8.41 ms  bias -0.50  coverage 1.000  slope 0.905  r 0.946
+[21:12:50]   geometry tail 450 ms  T MAE 8.50 ms  bias -0.41  coverage 1.000  slope 0.904  r 0.946
+[21:12:51]   geometry tail 640 ms  T MAE 8.45 ms  bias -0.45  coverage 1.000  slope 0.904  r 0.946
+[21:12:51]   geometry tail 850 ms  T MAE 8.45 ms  bias -0.45  coverage 1.000  slope 0.904  r 0.946
+[21:12:51] epoch 12  train loss 0.0924  val loss 0.2463  val mean IoU 0.8620  boundary MAE 8.98 ms  24.0 s
+[21:12:51]   P head and segmentation by structural cell, training split
+[21:12:51]     A normal           n    66   P head correct 100.0%   segmentation emits P 100.0%
+[21:12:51]     B truncated + P    n    56   P head correct  96.4%   segmentation emits P  96.4%
+[21:12:51]     C full, P masked   n    33   P head correct  87.9%   segmentation emits P   6.1%
+[21:12:51]     D QRS edge         n   120   P head correct  85.8%   segmentation emits P   4.2%
+[21:12:51]   new best geometry score 13.285, best_geometry.pt written
+[21:13:14]   geometry tail 150 ms  T MAE 8.18 ms  bias -0.82  coverage 1.000  slope 0.901  r 0.947
+[21:13:15]   geometry tail 300 ms  T MAE 8.32 ms  bias -0.68  coverage 1.000  slope 0.906  r 0.946
+[21:13:15]   geometry tail 450 ms  T MAE 8.32 ms  bias -0.59  coverage 1.000  slope 0.906  r 0.946
+[21:13:15]   geometry tail 640 ms  T MAE 8.27 ms  bias -0.64  coverage 1.000  slope 0.906  r 0.947
+[21:13:15]   geometry tail 850 ms  T MAE 8.27 ms  bias -0.64  coverage 1.000  slope 0.906  r 0.947
+[21:13:15] epoch 13  train loss 0.1021  val loss 0.2414  val mean IoU 0.8635  boundary MAE 8.95 ms  24.1 s
+[21:13:15]   P head and segmentation by structural cell, training split
+[21:13:15]     A normal           n    68   P head correct 100.0%   segmentation emits P 100.0%
+[21:13:15]     B truncated + P    n    56   P head correct  92.9%   segmentation emits P  92.9%
+[21:13:15]     C full, P masked   n    40   P head correct  90.0%   segmentation emits P   7.5%
+[21:13:15]     D QRS edge         n   111   P head correct  90.1%   segmentation emits P   4.5%
+[21:13:15]   new best geometry score 13.113, best_geometry.pt written
+[21:13:39]   geometry tail 150 ms  T MAE 8.36 ms  bias -0.55  coverage 1.000  slope 0.905  r 0.946
+[21:13:39]   geometry tail 300 ms  T MAE 8.41 ms  bias -0.41  coverage 1.000  slope 0.905  r 0.947
+[21:13:39]   geometry tail 450 ms  T MAE 8.36 ms  bias -0.45  coverage 1.000  slope 0.905  r 0.947
+[21:13:39]   geometry tail 640 ms  T MAE 8.36 ms  bias -0.45  coverage 1.000  slope 0.905  r 0.947
+[21:13:39]   geometry tail 850 ms  T MAE 8.36 ms  bias -0.45  coverage 1.000  slope 0.905  r 0.947
+[21:13:39] epoch 14  train loss 0.1042  val loss 0.2392  val mean IoU 0.8641  boundary MAE 8.79 ms  24.1 s
+[21:13:39]   P head and segmentation by structural cell, training split
+[21:13:39]     A normal           n    76   P head correct  98.7%   segmentation emits P  98.7%
+[21:13:39]     B truncated + P    n    61   P head correct  98.4%   segmentation emits P 100.0%
+[21:13:39]     C full, P masked   n    28   P head correct  92.9%   segmentation emits P   7.1%
+[21:13:39]     D QRS edge         n   110   P head correct  84.5%   segmentation emits P   2.7%
+[21:14:03]   geometry tail 150 ms  T MAE 8.14 ms  bias -1.05  coverage 1.000  slope 0.902  r 0.947
+[21:14:03]   geometry tail 300 ms  T MAE 8.27 ms  bias -0.82  coverage 1.000  slope 0.906  r 0.946
+[21:14:03]   geometry tail 450 ms  T MAE 8.27 ms  bias -0.82  coverage 1.000  slope 0.906  r 0.946
+[21:14:03]   geometry tail 640 ms  T MAE 8.27 ms  bias -0.82  coverage 1.000  slope 0.906  r 0.946
+[21:14:04]   geometry tail 850 ms  T MAE 8.27 ms  bias -0.82  coverage 1.000  slope 0.906  r 0.946
+[21:14:04] epoch 15  train loss 0.0981  val loss 0.2350  val mean IoU 0.8636  boundary MAE 8.91 ms  24.1 s
+[21:14:04]   P head and segmentation by structural cell, training split
+[21:14:04]     A normal           n    74   P head correct 100.0%   segmentation emits P  98.6%
+[21:14:04]     B truncated + P    n    69   P head correct  97.1%   segmentation emits P  94.2%
+[21:14:04]     C full, P masked   n    39   P head correct  89.7%   segmentation emits P  10.3%
+[21:14:04]     D QRS edge         n    93   P head correct  89.2%   segmentation emits P   3.2%
+[21:14:04]   new best geometry score 13.012, best_geometry.pt written
+[21:14:27]   geometry tail 150 ms  T MAE 7.91 ms  bias -1.36  coverage 1.000  slope 0.912  r 0.948
+[21:14:28]   geometry tail 300 ms  T MAE 7.86 ms  bias -1.32  coverage 1.000  slope 0.913  r 0.948
+[21:14:28]   geometry tail 450 ms  T MAE 7.82 ms  bias -1.27  coverage 1.000  slope 0.909  r 0.949
+[21:14:28]   geometry tail 640 ms  T MAE 7.82 ms  bias -1.27  coverage 1.000  slope 0.909  r 0.949
+[21:14:28]   geometry tail 850 ms  T MAE 7.82 ms  bias -1.27  coverage 1.000  slope 0.909  r 0.949
+[21:14:28] epoch 16  train loss 0.1017  val loss 0.2353  val mean IoU 0.8632  boundary MAE 8.86 ms  24.2 s
+[21:14:28]   P head and segmentation by structural cell, training split
+[21:14:28]     A normal           n    67   P head correct  98.5%   segmentation emits P 100.0%
+[21:14:28]     B truncated + P    n    63   P head correct  96.8%   segmentation emits P  96.8%
+[21:14:28]     C full, P masked   n    31   P head correct  96.8%   segmentation emits P   3.2%
+[21:14:28]     D QRS edge         n   114   P head correct  93.0%   segmentation emits P   4.4%
+[21:14:28]   new best geometry score 12.381, best_geometry.pt written
+[21:14:52]   geometry tail 150 ms  T MAE 7.64 ms  bias -1.45  coverage 1.000  slope 0.902  r 0.951
+[21:14:52]   geometry tail 300 ms  T MAE 7.82 ms  bias -1.18  coverage 1.000  slope 0.909  r 0.950
+[21:14:52]   geometry tail 450 ms  T MAE 7.77 ms  bias -1.14  coverage 1.000  slope 0.904  r 0.952
+[21:14:52]   geometry tail 640 ms  T MAE 7.77 ms  bias -1.14  coverage 1.000  slope 0.904  r 0.952
+[21:14:52]   geometry tail 850 ms  T MAE 7.77 ms  bias -1.14  coverage 1.000  slope 0.904  r 0.952
+[21:14:52] epoch 17  train loss 0.0977  val loss 0.2365  val mean IoU 0.8628  boundary MAE 8.81 ms  24.1 s
+[21:14:52]   P head and segmentation by structural cell, training split
+[21:14:52]     A normal           n    67   P head correct  98.5%   segmentation emits P 100.0%
+[21:14:52]     B truncated + P    n    68   P head correct  94.1%   segmentation emits P  92.6%
+[21:14:52]     C full, P masked   n    29   P head correct  93.1%   segmentation emits P   6.9%
+[21:14:52]     D QRS edge         n   111   P head correct  91.9%   segmentation emits P   5.4%
+[21:14:52] early stopping after 15 epochs without an improvement in val_boundary_mae
+[21:14:52] training finished, best val_boundary_mae 8.4
+[21:14:52] checkpoints in /Users/johnthuo/Desktop/Delineation/ml_modelling/checkpoints/ablate_freeze_encoder
+[21:14:52] to evaluate, run
+[21:14:52]   python ml_modelling/scripts/evaluate.py --checkpoint /Users/johnthuo/Desktop/Delineation/ml_modelling/checkpoints/ablate_freeze_encoder/best.pt --units <external units csv>

@@ -1,0 +1,423 @@
+{
+  "all 50 recordings": {
+    "qrs_onset": {
+      "baseline_mae_ms": 4.673333333333334,
+      "baseline_ci": [
+        4.33,
+        5.006666666666666
+      ],
+      "network_mae_ms": 1.4399999999999997,
+      "network_ci": [
+        1.0933333333333333,
+        1.8034166666666656
+      ],
+      "paired_diff_ms": -3.233333333333333,
+      "paired_ci": [
+        -3.6733333333333333,
+        -2.793333333333333
+      ],
+      "verdict": "favours network"
+    },
+    "qrs_offset": {
+      "baseline_mae_ms": 12.98,
+      "baseline_ci": [
+        10.620000000000003,
+        15.69358333333333
+      ],
+      "network_mae_ms": 9.133333333333333,
+      "network_ci": [
+        6.480000000000001,
+        12.34675
+      ],
+      "paired_diff_ms": -3.8466666666666662,
+      "paired_ci": [
+        -5.73,
+        -1.8032500000000014
+      ],
+      "verdict": "favours network"
+    },
+    "t_onset": {
+      "baseline_mae_ms": 62.155,
+      "baseline_ci": [
+        56.69983333333334,
+        67.66020833333333
+      ],
+      "network_mae_ms": 23.103333333333335,
+      "network_ci": [
+        19.95991666666667,
+        26.3935
+      ],
+      "paired_diff_ms": -39.05166666666667,
+      "paired_ci": [
+        -45.7,
+        -32.566624999999995
+      ],
+      "verdict": "favours network"
+    },
+    "t_peak": {
+      "baseline_mae_ms": 1.9833333333333336,
+      "baseline_ci": [
+        0.9433333333333335,
+        3.340041666666666
+      ],
+      "network_mae_ms": 15.706666666666667,
+      "network_ci": [
+        10.133083333333332,
+        21.766666666666666
+      ],
+      "paired_diff_ms": 13.723333333333334,
+      "paired_ci": [
+        8.408166666666666,
+        19.57016666666667
+      ],
+      "verdict": "favours v3"
+    },
+    "t_offset": {
+      "baseline_mae_ms": 26.090000000000003,
+      "baseline_ci": [
+        19.599625000000003,
+        33.44683333333334
+      ],
+      "network_mae_ms": 41.75333333333334,
+      "network_ci": [
+        29.93666666666667,
+        53.95666666666666
+      ],
+      "paired_diff_ms": 15.663333333333334,
+      "paired_ci": [
+        9.133333333333333,
+        22.732416666666655
+      ],
+      "verdict": "favours v3"
+    },
+    "_boundary": {
+      "baseline_mae_ms": 14.581111111111108,
+      "network_mae_ms": 17.442222222222224,
+      "paired_diff_ms": 2.8611111111111107,
+      "paired_ci": [
+        0.6710694444444443,
+        5.190638888888888
+      ],
+      "verdict": "favours v3",
+      "n_records": 50,
+      "landmarks": [
+        "qrs_onset",
+        "qrs_offset",
+        "t_offset"
+      ]
+    },
+    "bio_qrs_duration": {
+      "baseline_mae_ms": 13.0,
+      "network_mae_ms": 9.353333333333332,
+      "paired_diff_ms": -3.646666666666667,
+      "paired_ci": [
+        -5.810250000000002,
+        -1.4699166666666679
+      ],
+      "verdict": "favours network"
+    },
+    "bio_qt_interval": {
+      "baseline_mae_ms": 27.87333333333333,
+      "network_mae_ms": 42.42666666666666,
+      "paired_diff_ms": 14.553333333333335,
+      "paired_ci": [
+        8.093208333333331,
+        21.64029166666666
+      ],
+      "verdict": "favours v3"
+    },
+    "bio_t_peak_to_end": {
+      "baseline_mae_ms": 26.683333333333334,
+      "network_mae_ms": 55.49333333333333,
+      "paired_diff_ms": 28.81,
+      "paired_ci": [
+        22.40475,
+        35.721208333333315
+      ],
+      "verdict": "favours v3"
+    }
+  },
+  "matched, 30 recordings": {
+    "qrs_onset": {
+      "baseline_mae_ms": 4.85,
+      "baseline_ci": [
+        4.433333333333334,
+        5.255694444444444
+      ],
+      "network_mae_ms": 1.3333333333333333,
+      "network_ci": [
+        0.8888888888888887,
+        1.8333333333333333
+      ],
+      "paired_diff_ms": -3.5166666666666666,
+      "paired_ci": [
+        -4.0777777777777775,
+        -2.9555555555555553
+      ],
+      "verdict": "favours network"
+    },
+    "qrs_offset": {
+      "baseline_mae_ms": 11.455555555555556,
+      "baseline_ci": [
+        8.944444444444445,
+        14.594583333333333
+      ],
+      "network_mae_ms": 7.583333333333332,
+      "network_ci": [
+        4.299861111111111,
+        12.339166666666664
+      ],
+      "paired_diff_ms": -3.872222222222222,
+      "paired_ci": [
+        -6.11125,
+        -1.460972222222224
+      ],
+      "verdict": "favours network"
+    },
+    "t_onset": {
+      "baseline_mae_ms": 71.76666666666665,
+      "baseline_ci": [
+        65.86104166666665,
+        78.08062500000001
+      ],
+      "network_mae_ms": 23.400000000000002,
+      "network_ci": [
+        18.61097222222222,
+        28.55555555555555
+      ],
+      "paired_diff_ms": -48.36666666666667,
+      "paired_ci": [
+        -56.572361111111114,
+        -41.00263888888889
+      ],
+      "verdict": "favours network"
+    },
+    "t_peak": {
+      "baseline_mae_ms": 1.2833333333333334,
+      "baseline_ci": [
+        0.5,
+        2.3472916666666657
+      ],
+      "network_mae_ms": 2.7055555555555557,
+      "network_ci": [
+        1.1944444444444442,
+        5.011111111111111
+      ],
+      "paired_diff_ms": 1.422222222222222,
+      "paired_ci": [
+        -0.3695138888888888,
+        3.8416666666666663
+      ],
+      "verdict": "not significant"
+    },
+    "t_offset": {
+      "baseline_mae_ms": 37.925000000000004,
+      "baseline_ci": [
+        28.77645833333333,
+        47.2557638888889
+      ],
+      "network_mae_ms": 64.16111111111111,
+      "network_ci": [
+        48.8775,
+        78.9573611111111
+      ],
+      "paired_diff_ms": 26.236111111111118,
+      "paired_ci": [
+        16.83590277777778,
+        35.761666666666656
+      ],
+      "verdict": "favours v3"
+    },
+    "_boundary": {
+      "baseline_mae_ms": 18.076851851851853,
+      "network_mae_ms": 24.359259259259254,
+      "paired_diff_ms": 6.2824074074074066,
+      "paired_ci": [
+        3.2286574074074075,
+        9.54736111111111
+      ],
+      "verdict": "favours v3",
+      "n_records": 30,
+      "landmarks": [
+        "qrs_onset",
+        "qrs_offset",
+        "t_offset"
+      ]
+    },
+    "bio_qrs_duration": {
+      "baseline_mae_ms": 11.83888888888889,
+      "network_mae_ms": 7.994444444444443,
+      "paired_diff_ms": -3.8444444444444454,
+      "paired_ci": [
+        -6.13347222222222,
+        -1.6444444444444448
+      ],
+      "verdict": "favours network"
+    },
+    "bio_qt_interval": {
+      "baseline_mae_ms": 40.16388888888889,
+      "network_mae_ms": 64.70555555555555,
+      "paired_diff_ms": 24.541666666666664,
+      "paired_ci": [
+        15.105486111111112,
+        34.34173611111111
+      ],
+      "verdict": "favours v3"
+    },
+    "bio_t_peak_to_end": {
+      "baseline_mae_ms": 37.541666666666664,
+      "network_mae_ms": 65.72222222222223,
+      "paired_diff_ms": 28.180555555555557,
+      "paired_ci": [
+        18.674861111111113,
+        37.698263888888874
+      ],
+      "verdict": "favours v3"
+    }
+  },
+  "ischemia, 20 recordings": {
+    "qrs_onset": {
+      "baseline_mae_ms": 4.408333333333333,
+      "baseline_ci": [
+        3.875,
+        4.9416666666666655
+      ],
+      "network_mae_ms": 1.5999999999999999,
+      "network_ci": [
+        1.0749999999999997,
+        2.15
+      ],
+      "paired_diff_ms": -2.8083333333333327,
+      "paired_ci": [
+        -3.45,
+        -2.15
+      ],
+      "verdict": "favours network"
+    },
+    "qrs_offset": {
+      "baseline_mae_ms": 15.266666666666666,
+      "baseline_ci": [
+        11.008125,
+        20.05854166666666
+      ],
+      "network_mae_ms": 11.458333333333332,
+      "network_ci": [
+        7.741666666666667,
+        15.341874999999995
+      ],
+      "paired_diff_ms": -3.8083333333333336,
+      "paired_ci": [
+        -7.15,
+        -0.29166666666666685
+      ],
+      "verdict": "favours network"
+    },
+    "t_onset": {
+      "baseline_mae_ms": 47.73749999999999,
+      "baseline_ci": [
+        41.7953125,
+        53.4875
+      ],
+      "network_mae_ms": 22.658333333333335,
+      "network_ci": [
+        19.424791666666664,
+        25.933749999999996
+      ],
+      "paired_diff_ms": -25.079166666666666,
+      "paired_ci": [
+        -33.216875,
+        -16.462291666666673
+      ],
+      "verdict": "favours network"
+    },
+    "t_peak": {
+      "baseline_mae_ms": 3.033333333333333,
+      "baseline_ci": [
+        0.7915625,
+        5.883541666666663
+      ],
+      "network_mae_ms": 35.20833333333333,
+      "network_ci": [
+        25.974375000000002,
+        44.58333333333333
+      ],
+      "paired_diff_ms": 32.175,
+      "paired_ci": [
+        23.4290625,
+        40.94197916666666
+      ],
+      "verdict": "favours v3"
+    },
+    "t_offset": {
+      "baseline_mae_ms": 8.3375,
+      "baseline_ci": [
+        7.1875,
+        9.520833333333334
+      ],
+      "network_mae_ms": 8.141666666666667,
+      "network_ci": [
+        7.058333333333333,
+        9.141666666666666
+      ],
+      "paired_diff_ms": -0.19583333333333333,
+      "paired_ci": [
+        -1.4791666666666665,
+        0.9167708333333319
+      ],
+      "verdict": "not significant"
+    },
+    "_boundary": {
+      "baseline_mae_ms": 9.3375,
+      "network_mae_ms": 7.0666666666666655,
+      "paired_diff_ms": -2.270833333333333,
+      "paired_ci": [
+        -3.2930555555555556,
+        -1.1763541666666675
+      ],
+      "verdict": "favours network",
+      "n_records": 20,
+      "landmarks": [
+        "qrs_onset",
+        "qrs_offset",
+        "t_offset"
+      ]
+    },
+    "bio_qrs_duration": {
+      "baseline_mae_ms": 14.741666666666669,
+      "network_mae_ms": 11.391666666666667,
+      "paired_diff_ms": -3.3500000000000005,
+      "paired_ci": [
+        -7.633749999999999,
+        0.7002083333333302
+      ],
+      "verdict": "not significant"
+    },
+    "bio_qt_interval": {
+      "baseline_mae_ms": 9.437500000000002,
+      "network_mae_ms": 9.008333333333331,
+      "paired_diff_ms": -0.4291666666666668,
+      "paired_ci": [
+        -1.5709374999999999,
+        0.7416666666666665
+      ],
+      "verdict": "not significant"
+    },
+    "bio_t_peak_to_end": {
+      "baseline_mae_ms": 10.395833333333332,
+      "network_mae_ms": 40.14999999999999,
+      "paired_diff_ms": 29.754166666666656,
+      "paired_ci": [
+        21.412395833333335,
+        38.375520833333326
+      ],
+      "verdict": "favours v3"
+    }
+  },
+  "armA_boundary_all": {
+    "mae_ms": 26.284444444444443,
+    "ci": [
+      22.712111111111113,
+      30.125666666666667
+    ]
+  }
+}

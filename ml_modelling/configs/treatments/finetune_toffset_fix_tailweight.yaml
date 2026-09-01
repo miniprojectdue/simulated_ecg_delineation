@@ -1,0 +1,11 @@
+# Stage two paired with treatments/pretrain_toffset_fix_tailweight.yaml.
+inherit: ml_modelling/configs/treatments/finetune_toffset_fix.yaml
+
+run:
+  name: finetune_toffset_fix_tailweight
+
+loss:
+  tail_background_weight: 5.0
+
+train:
+  init_from: ml_modelling/checkpoints/pretrain_toffset_fix_tailweight/best_geometry.pt

@@ -1,0 +1,207 @@
+{
+  "_config_path": "/Users/johnthuo/Desktop/Delineation/ml_modelling/configs/pretrain.yaml",
+  "augment": {
+    "amplitude_scale": 0.0,
+    "baseline_wander_hz": 0.5,
+    "baseline_wander_mv": 0.0,
+    "enabled": true,
+    "epoch_resample": true,
+    "gaussian_noise_mv": 0.0,
+    "lead_dropout_p": 0.05,
+    "polarity_flip_p": 0.0,
+    "time_jitter_samples": 20
+  },
+  "data": {
+    "allow_csv_fallback": true,
+    "crop_length": 1280,
+    "drop_last": false,
+    "fs_hz": 500,
+    "keep_disease_classes": [],
+    "keep_leads": [],
+    "magnitude_channel": true,
+    "max_units": 0,
+    "num_workers": 2,
+    "pad_mode": "edge",
+    "pad_value": 0.0,
+    "pin_memory": true,
+    "prefetch_factor": 2,
+    "signal_cache": "ml_modelling/data/signal_cache",
+    "train_split": "train",
+    "units_csv": "ml_modelling/data/finetune_units.csv",
+    "val_split": "val",
+    "validity_channel": true,
+    "window_pad_ms": 40.0,
+    "window_source": "auto"
+  },
+  "eval": {
+    "biomarkers": [
+      "qrs_duration",
+      "qt_interval",
+      "t_duration",
+      "t_peak_to_end"
+    ],
+    "primary_tolerance_ms": 25,
+    "read_pad_ms": 150.0,
+    "tolerance_ms": [
+      10,
+      25,
+      50,
+      75,
+      150
+    ]
+  },
+  "loss": {
+    "boundary_band_samples": 10,
+    "boundary_weight": 3.0,
+    "class_weights": [
+      0.2,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "cross_entropy_weight": 1.0,
+    "dice_weight": 0.5,
+    "label_smoothing": 0.0,
+    "p_head_weight": 0.15,
+    "tail_background_weight": 5.0
+  },
+  "model": {
+    "activation": "relu",
+    "attention": {
+      "attn_dropout": 0.0,
+      "bottleneck": false,
+      "gate_reduction": 2,
+      "heads": 8,
+      "keep_maps": false,
+      "neighborhood": 6,
+      "skip_gates": true
+    },
+    "base_width": 32,
+    "depth": 5,
+    "dropout": 0.1,
+    "in_channels": 14,
+    "kernel_size": 9,
+    "lead_conditioning": "film",
+    "lead_embedding_dim": 32,
+    "n_classes": 4,
+    "name": "unet1d",
+    "norm": "batch",
+    "p_head": {
+      "dropout": 0.0,
+      "enabled": true,
+      "hidden": 128
+    }
+  },
+  "normalisation": {
+    "clip_sigma": 20.0,
+    "eps": 1e-06,
+    "mode": "robust",
+    "scope": "window",
+    "scope_margin_ms": 0
+  },
+  "optim": {
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "encoder_lr_mult": 0.1,
+    "grad_clip_norm": 5.0,
+    "lr": 5e-05,
+    "min_lr": 1e-06,
+    "optimizer": "adamw",
+    "scheduler": "cosine",
+    "warmup_epochs": 2,
+    "weight_decay": 0.0001
+  },
+  "postprocess": {
+    "keep_largest_region": true,
+    "min_region_samples": 8,
+    "peak_search": "region",
+    "qrs_amplitude_floor_mv": 0.02,
+    "qrs_amplitude_frac": 0.05,
+    "smoothing_kernel": 9
+  },
+  "run": {
+    "deterministic": true,
+    "device": "auto",
+    "log_root": "ml_modelling/results",
+    "name": "ablate_freeze_encoder_bn",
+    "out_root": "ml_modelling/checkpoints",
+    "seed": 1337
+  },
+  "structural_augment": {
+    "context": {
+      "none_p": 0.55,
+      "pre_p_lead_in_ms": [
+        40.0,
+        150.0
+      ],
+      "pre_p_p": 0.15,
+      "qrs_edge_lead_in_ms": [
+        0.0,
+        8.0
+      ],
+      "qrs_edge_p": 0.3
+    },
+    "isolate_beat_p": 0.3,
+    "isolate_supervise_tail": true,
+    "isolate_tail_ms": [
+      150.0,
+      850.0
+    ],
+    "p_mask_matched_residual": true,
+    "p_mask_p": 0.3,
+    "repolarisation_alpha": [
+      1.0,
+      2.3
+    ],
+    "repolarisation_alpha_clip": [
+      0.25,
+      4.5
+    ],
+    "repolarisation_min_source_ms": 20.0,
+    "repolarisation_stretch_p": 0.3,
+    "repolarisation_target_ms": [
+      52.0,
+      94.0,
+      220.0
+    ],
+    "t_amplitude_p": 0.2,
+    "t_amplitude_range": [
+      0.5,
+      1.0
+    ],
+    "t_offset_jitter_ms": 0.0,
+    "time_warp_pct": 0.0
+  },
+  "train": {
+    "accumulate_steps": 1,
+    "amp": true,
+    "batch_size": 16,
+    "early_stopping_patience": 15,
+    "epochs": 60,
+    "eval_batch_size": 32,
+    "freeze": "encoder_bn",
+    "geometry_validation": {
+      "enabled": true,
+      "max_units": 0,
+      "min_natural_mean_iou": 0.75,
+      "missing_penalty_ms": 150.0,
+      "num_workers": 0,
+      "one_per_record": true,
+      "slope_penalty_ms": 50.0,
+      "tail_ms": [
+        150.0,
+        300.0,
+        450.0,
+        640.0,
+        850.0
+      ]
+    },
+    "init_from": "ml_modelling/checkpoints/pretrain_toffset_fix_tailweight/best.pt",
+    "log_every_steps": 50,
+    "monitor": "val_boundary_mae",
+    "monitor_mode": "min",
+    "save_every_epoch": false
+  }
+}

@@ -1,0 +1,72 @@
+# ─── OS / editor junk ───────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+*.swp
+*~
+
+# ─── In-place-edit backups written by the pipeline itself ──────────────────
+# Several stages rewrite a table in place and copy the original aside first, and
+# the two MATLAB review tools autosave continuously while a reviewer works. These
+# are produced by a clean run; none are checked in.
+#
+#   merge_manual_corrections.py   master_labels.csv.bak
+#   apply_deletions.py            <table>.bak
+#   apply_qrs_polarity.py         clean_units_labels.prepolarity.bak.csv
+#   repair_labels.py              <labels>.bak_repair_<stamp>
+#   repeat_review.m               <corrections>.bak_repeat_<stamp>
+#   reset_tlead_progress.m        <corrections>.bak_reset_<stamp>
+#   apply_boundary_rule.m         <corrections>.bak_<stamp>
+#   medalcare_label_ecg.m,        <corrections>.autosave.bak
+#   gold_label_ecg.m
+#
+# Most land inside a data directory already ignored below; master_labels.csv.bak
+# and apply_deletions.py's output do not, which is what these three rules catch.
+*.bak
+*.bak_*
+*.autosave.bak
+
+# ─── Python ────────────────────────────────────────────────────────────────
+__pycache__/
+*.pyc
+.venv/
+venv/
+project_version/
+
+# ─── Source data: obtain from the MedalCare-XL release (~27 GB) ────────────
+WP2_largeDataset_Noise/
+WP2_largeDataset_ParameterFiles/
+
+# ─── Regenerable pipeline outputs. See DATA_MAP.md for the producing script ─
+ecgdeli_labelling/data/primary/
+ecgdeli_labelling/data/input/
+ecgdeli_labelling/data/qc/*.csv
+dataset_curation/data/assembled/*.csv
+dataset_curation/data/global/
+dataset_curation/data/review/
+dataset_curation/data/audit_samples/
+manual_labelling/data/
+manual_labelling/corrections/
+Gold/data/
+Gold/corrections/
+statistics/data/
+statistics/figures/
+external_monoalg3d/labels/
+external_monoalg3d/test_export/
+external_monoalg3d/*.mat
+external_monoalg3d/signals/
+ml_modelling/data/
+
+# ─── Model weights: ~1.3 GB across 15 runs. See DATA_MAP.md ────────────────
+ml_modelling/checkpoints/
+
+# ─── Staging / scratch ─────────────────────────────────────────────────────
+_to_delete/
+_quarantine/
+archive/
+upload/
+
+# ─── Tracked on purpose: every metric behind Chapter 4 ─────────────────────
+!ml_modelling/results/
+!ml_modelling/results/**
+!ecgdeli_labelling/data/qc/crosslead_fiducial_summary.txt
+!dataset_curation/data/assembled/_tonset_report_clean.txt

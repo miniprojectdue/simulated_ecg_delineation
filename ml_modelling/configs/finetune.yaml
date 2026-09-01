@@ -1,0 +1,73 @@
+# configs/finetune.yaml
+
+inherit: ml_modelling/configs/pretrain.yaml
+
+run:
+  name: finetune_context
+  seed: 1337
+
+data:
+  units_csv: ml_modelling/data/finetune_units.csv
+  num_workers: 2
+  drop_last: false
+  pad_mode: edge
+  validity_channel: true    # matches stage one, see configs/pretrain.yaml
+
+
+structural_augment:
+
+  isolate_beat_p: 0.30            # restored to the stage one rate. It was halved on the grounds
+                                  # that it perturbs the neighbourhood a boundary sits in, which
+                                  # was right while the flattened tail carried no label and the
+                                  # transform only changed the input. The tail is supervised now,
+                                  # so the transform is no longer a blur around a boundary, it is
+                                  # the one place either stage is taught that a T ends when the
+                                  # record does. That is the same argument already made two lines
+                                  # above for holding qrs_edge_p at the stage one rate.
+  isolate_tail_ms: [150.0, 850.0]  # the stage one range, see pretrain.yaml
+  context:
+    none_p: 0.55
+    pre_p_p: 0.15
+    qrs_edge_p: 0.30              # held at the stage one rate, see above
+    pre_p_lead_in_ms: [40.0, 150.0]
+    qrs_edge_lead_in_ms: [0.0, 8.0]
+  p_mask_p: 0.30
+  p_mask_matched_residual: true
+  repolarisation_stretch_p: 0.30
+  repolarisation_alpha: [1.0, 2.3]
+  t_amplitude_p: 0.20             # gentler than stage one, same reasoning as the rest of this
+  t_amplitude_range: [0.5, 1.0]   # block: the reviewed boundaries are the thing being learned
+  t_offset_jitter_ms: 0.0         # off. Stage two is where the reviewed convention is learned
+                                  # exactly, so nothing is allowed to move the T offset label.
+  time_warp_pct: 0.0
+
+augment:
+  enabled: true
+  time_jitter_samples: 20      # gentler, the reviewed boundaries are the thing being learned
+  lead_dropout_p: 0.05
+  # Inherited as zero from pretrain.yaml and restated here so this file is readable alone.
+  # See that file for why each is off.
+  amplitude_scale: 0.0         # identity under robust per-lead normalisation
+  baseline_wander_mv: 0.0      # every test partition is simulated and noise free
+  gaussian_noise_mv: 0.0       # as above
+
+loss:
+  boundary_weight: 3.0         # Equation 3.11, the stage-two factor. See configs/pretrain.yaml
+  boundary_band_samples: 10    # for why the Gaussian soft target no longer replaces this.
+
+optim:
+  lr: 5.0e-5                   # an order of magnitude below stage one
+  weight_decay: 1.0e-4
+  scheduler: cosine
+  warmup_epochs: 2
+  encoder_lr_mult: 0.1         # discriminative rate, the encoder moves a tenth as fast
+
+train:
+  epochs: 60                   # 275 training units, so an epoch is cheap
+  batch_size: 16
+  eval_batch_size: 32
+  early_stopping_patience: 15
+  monitor: val_boundary_mae
+  monitor_mode: min
+  init_from: ml_modelling/checkpoints/pretrain_context/best.pt
+  freeze: none                 # none, encoder or encoder_bn. See README for the three strategies.

@@ -1,0 +1,65 @@
+# Few-shot domain-adaptation of the no-bottleneck stage-one checkpoint onto Smith2026.
+# FEASIBILITY PROBE, reported as adaptation (NOT zero-shot external). Record-level stratified
+# split: 40 train / 10 val / 50 test records, disease-class balanced, zero record overlap.
+inherit: ml_modelling/configs/finetune.yaml
+
+run:
+  name: adapt_ischemia
+  seed: 1337
+
+model:
+  attention:
+    bottleneck: false     # First run false, second true. 
+    skip_gates: true
+
+data:
+  units_csv: ml_modelling/adaptation_probe/smith2026_adapt.csv
+  signal_cache: ml_modelling/data/signal_cache
+  window_source: table    
+  train_split: train
+  val_split: val
+  num_workers: 0
+  keep_disease_classes: []
+  pad_mode: edge
+  magnitude_channel: true
+  validity_channel: true
+
+
+structural_augment:
+  isolate_beat_p: 0.0
+  p_mask_p: 0.0
+  repolarisation_stretch_p: 0.0
+  t_offset_jitter_ms: 0.0
+  time_warp_pct: 0.0
+  context:
+    none_p: 1.0
+    pre_p_p: 0.0
+    qrs_edge_p: 0.0
+
+augment:
+  enabled: true
+  epoch_resample: true
+  time_jitter_samples: 20
+  lead_dropout_p: 0.05
+  amplitude_scale: 0.0
+  baseline_wander_mv: 0.0
+  gaussian_noise_mv: 0.0
+
+optim:
+  lr: 1.0e-4              # a little above stage-two default, few-shot needs meaningful movement
+  weight_decay: 1.0e-4
+  scheduler: cosine
+  warmup_epochs: 2
+  encoder_lr_mult: 0.1   # encoder adapts slowly, decoder/head carry the morphology adaptation
+
+train:
+  epochs: 40
+  batch_size: 16
+  eval_batch_size: 32
+  early_stopping_patience: 12
+  monitor: val_boundary_mae
+  monitor_mode: min
+  init_from: ml_modelling/checkpoints/finetune_toffset_fix/best_geometry.pt
+  freeze: none           # let batch-norm adapt to the new domain
+  geometry_validation:
+    enabled: false

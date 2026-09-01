@@ -1,0 +1,30 @@
+Conditioning ablations  ablate_conditioning_external  (1200 units, twelve queries each)
+checkpoint ml_modelling/checkpoints/finetune_toffset_fix_tailweight/best_geometry.pt
+
+Mismatched-query test: MAE (ms) under the correct query against the mean over
+the eleven incorrect queries. A conditioning path carrying lead-specific
+information makes the matched column smaller.
+landmark        matched   mismatched    ratio
+qrs_onset          4.35         4.35     1.00
+q_peak             1.05         1.05     1.00
+r_peak            11.94        11.95     1.00
+s_peak             4.67         4.93     1.05
+qrs_offset        17.00        17.00     1.00
+t_onset           30.75        30.72     1.00
+t_peak            19.12        19.08     1.00
+t_offset          22.29        22.21     1.00
+boundaries        18.60        18.57     1.00
+all landmarks      16.20        16.19     1.00
+
+Query sweep: per-landmark spread of the PREDICTED position across the twelve
+queries, input held fixed. SD is in ms, averaged over units; changed is the
+fraction of units on which any query moves the landmark at all.
+landmark        mean SD    median SD    changed
+qrs_onset          0.13         0.00      16.7%
+q_peak             0.00         0.00       0.0%
+r_peak             0.02         0.00       0.6%
+s_peak             0.35         0.00       7.4%
+qrs_offset         2.44         1.99      97.0%
+t_onset            2.93         2.17      99.6%
+t_peak             1.17         0.00      10.7%
+t_offset           4.14         2.46      99.0%

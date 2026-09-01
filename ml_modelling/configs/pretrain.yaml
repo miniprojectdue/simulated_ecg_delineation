@@ -1,0 +1,156 @@
+# configs/pretrain.yaml
+run:
+  name: pretrain_context
+  seed: 1337
+  device: auto              # cuda, then mps, then cpu
+  deterministic: true
+  out_root: ml_modelling/checkpoints
+  log_root: ml_modelling/results
+
+data:
+  units_csv: ml_modelling/data/pretrain_units.csv
+  signal_cache: ml_modelling/data/signal_cache
+  allow_csv_fallback: true  # read the raw CSV when a cached .npy is missing
+  fs_hz: 500
+  crop_length: 1280         # samples; 2560 ms at 500 Hz, divides by 32
+  pad_value: 0.0
+  pad_mode: edge            # replicate the edge sample; a step to zero reads as a deflection
+  magnitude_channel: true   # spatial magnitude curve (Eq. 3.4) as a thirteenth channel
+  validity_channel: true    # fourteenth channel: one where observed, zero where not
+  window_source: auto       # auto, table or landmarks. See README, "The window definition"
+  window_pad_ms: 40.0       # the pad cut_training_corpus.py applies
+  train_split: train
+  val_split: val
+  num_workers: 4
+  prefetch_factor: 2
+  pin_memory: true
+  drop_last: true
+  keep_disease_classes: []  # empty means keep everything
+  keep_leads: []
+  max_units: 0              # 0 means no cap; a small cap gives a fast smoke test
+
+normalisation:
+  mode: robust              # robust (per-lead median and IQR), zscore, or none
+  eps: 1.0e-6
+  clip_sigma: 20.0          # clip after scaling so an artefact cannot dominate a batch
+  scope: window             # statistics over the beat window, not the crop. See README
+  scope_margin_ms: 0        # 0 is exactly gain-invariant across contexts, measured
+
+augment:                    # training split only; disabled for validation and test
+  enabled: true
+  time_jitter_samples: 40   # shift the crop inside the padded window, labels shift with it
+  lead_dropout_p: 0.1       # zero a non-target lead, never the target lead
+  # The four below are held at zero rather than deleted, so config_resolved.json records the
+  # decision rather than leaving it inferred from an absence. See README, "Configuration".
+  amplitude_scale: 0.0      # identity under robust per-lead scaling
+  baseline_wander_mv: 0.0   # every surface here is simulated and noise free
+  baseline_wander_hz: 0.5
+  gaussian_noise_mv: 0.0
+  polarity_flip_p: 0.0      # inadmissible: polarity carries the meaning of Q, R and S
+
+structural_augment:
+  # Truncation and P-observability are drawn separately, so all four combinations occur and the
+  # auxiliary head cannot read one off the validity channel.
+  isolate_beat_p: 0.30            # the beat stands alone, neighbours become isoelectric
+  isolate_tail_ms: [150.0, 850.0]  # flat tail after the window, drawn per crop
+  isolate_supervise_tail: true    # label that tail background; set false to reproduce the
+                                  # earlier arm where it was left unsupervised
+
+  context:
+    none_p: 0.50
+    pre_p_p: 0.20                 # truncated, the P survives
+    qrs_edge_p: 0.30              # truncated at the QRS, the P is gone
+    pre_p_lead_in_ms: [40.0, 150.0]
+    qrs_edge_lead_in_ms: [0.0, 8.0]
+
+  p_mask_p: 0.35                  # the P removed from an intact record
+  p_mask_matched_residual: true   # interpolation plus a real detrended background residual, so
+                                  # the head cannot answer by measuring smoothness
+
+  # T onset and peak are held; only the descending limb stretches, so the R-to-T-peak interval
+  # is untouched.
+  repolarisation_stretch_p: 0.35
+  repolarisation_alpha: [1.0, 2.3]
+
+  t_amplitude_p: 0.30             # scale the T toward baseline, labels untouched
+  t_amplitude_range: [0.4, 1.0]
+  t_offset_jitter_ms: 20.0        # the two T-offset conventions differ by 17.57 ms
+  time_warp_pct: 0.0              # off; the targeted stretch above replaces it
+
+model:
+  name: unet1d
+  in_channels: 14           # twelve leads, spatial magnitude, validity mask
+  base_width: 32
+  depth: 5                  # 32, 64, 128, 256, 512
+  kernel_size: 9
+  dropout: 0.1
+  norm: batch               # batch or group
+  activation: relu
+  lead_embedding_dim: 32
+  lead_conditioning: film   # film, concat or none
+  n_classes: 4
+  attention:
+    bottleneck: true        # self-attention over the eighty bottleneck tokens, 32 ms each
+    heads: 8
+    neighborhood: 6         # +/- 6 tokens, about +/- 192 ms. A regulariser, not a guarantee
+    attn_dropout: 0.0
+    skip_gates: true        # attention gates on all four skips, 2 to 16 ms per token
+    gate_reduction: 2
+    keep_maps: false        # true only for the conditioning diagnostics; it costs memory
+  p_head:
+    enabled: true           # auxiliary observable-P classifier off the pooled bottleneck
+    hidden: 128
+    dropout: 0.0
+
+loss:
+  cross_entropy_weight: 1.0
+  dice_weight: 0.5
+  class_weights: [0.2, 1.0, 1.0, 1.0]   # background is common, the three waves are not
+  # Equation 3.11: hard one-hot targets with the transition band upweighted. Stage two raises
+  # the factor to three. The Gaussian soft target that previously replaced this was removed;
+  # see README, "The objective".
+  boundary_weight: 2.0
+  boundary_band_samples: 10
+  label_smoothing: 0.0      # uniform smoothing over classes, a different thing, off
+  p_head_weight: 0.15       # small on purpose: one label per crop against 1280 for segmentation
+
+optim:
+  optimizer: adamw
+  lr: 3.0e-4
+  weight_decay: 1.0e-4
+  betas: [0.9, 0.999]
+  scheduler: cosine
+  warmup_epochs: 1
+  min_lr: 1.0e-6
+  grad_clip_norm: 5.0
+  encoder_lr_mult: 1.0      # only meaningful when fine-tuning
+
+train:
+  epochs: 45
+  batch_size: 64
+  eval_batch_size: 128
+  amp: true                 # ignored when the device is not cuda
+  accumulate_steps: 1
+  early_stopping_patience: 10
+  monitor: val_mean_iou     # val_mean_iou, val_loss or val_boundary_mae
+  monitor_mode: max
+  save_every_epoch: false
+  init_from: ''             # empty for stage one
+  freeze: none              # none, encoder or encoder_bn
+  log_every_steps: 50
+
+postprocess:
+  min_region_samples: 8         # 16 ms; anything shorter is a speckle
+  smoothing_kernel: 9           # odd, median filter over the argmax label sequence
+  keep_largest_region: true     # one beat per window, so one region per wave class
+  qrs_amplitude_frac: 0.05      # deflection threshold as a fraction of the largest excursion
+  qrs_amplitude_floor_mv: 0.02  # absolute floor so flat leads do not invent deflections
+  peak_search: region           # peaks read from the voltage trace inside the predicted region
+
+eval:
+  tolerance_ms: [10, 25, 50, 75, 150]
+  primary_tolerance_ms: 25
+  # How far past the labelled window a predicted region may be followed. Zero reproduces the
+  # earlier behaviour, which reported truncation as error. See README, "Configuration".
+  read_pad_ms: 150.0
+  biomarkers: [qrs_duration, qt_interval, t_duration, t_peak_to_end]

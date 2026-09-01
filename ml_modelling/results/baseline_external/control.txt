@@ -1,0 +1,21 @@
+CONSTANT-PREDICTOR CONTROL
+A method that ignores the signal entirely and always returns the corpus median.
+
+landmark    |  ref sd | constant predictor     | delineate_ecg_v3       | network arm B         
+qrs_onset   |     1.4 |   0.88 [ 0.72, 1.07] |   4.51 [ 4.32, 4.70] |  21.66 [16.61,27.38]
+qrs_offset  |    11.9 |   9.30 [ 8.13,10.53] |  12.96 [11.85,14.12] |  33.98 [26.89,42.09]
+t_offset    |    71.0 |  66.60 [57.28,75.85] |  34.57 [30.69,38.52] |  35.24 [32.75,37.93]
+
+Beats the constant predictor?
+  qrs_onset   v3        +3.63 [ +3.35, +3.90]  no
+  qrs_onset   network  +20.78 [+15.77,+26.48]  no
+  qrs_offset  v3        +3.66 [ +2.56, +4.74]  no
+  qrs_offset  network  +24.69 [+17.76,+32.76]  no
+  t_offset    v3       -32.04 [-38.12,-26.24]  yes
+  t_offset    network  -31.36 [-42.13,-20.37]  yes
+
+
+T OFFSET, the only landmark on this corpus that carries real spread
+  all 162      v3  34.57  network  35.24  diff  +0.65 [ -4.71, +6.35]  not significant
+  matched 117  v3  43.07  network  31.52  diff -11.60 [-17.60, -5.54]  favours network
+  ischemia 45  v3  12.45  network  44.93  diff +32.48 [+27.28,+38.47]  favours v3

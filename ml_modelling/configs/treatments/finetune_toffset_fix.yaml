@@ -1,0 +1,34 @@
+# Stage two paired with treatments/pretrain_toffset_fix.yaml.
+inherit: ml_modelling/configs/finetune.yaml
+
+run:
+  name: finetune_toffset_fix
+
+augment:
+  epoch_resample: true
+
+structural_augment:
+  repolarisation_stretch_p: 0.30
+  repolarisation_target_ms: [52.0, 94.0, 220.0]
+  repolarisation_alpha_clip: [0.25, 4.5]
+  repolarisation_min_source_ms: 20.0
+
+model:
+  attention:
+    bottleneck: false
+    skip_gates: true
+
+train:
+  # The geometry-selected checkpoint is written alongside the ordinary best checkpoint. Verify
+  # both on the internal natural test before stage two; this default chooses the robust one.
+  init_from: ml_modelling/checkpoints/pretrain_toffset_fix/best_geometry.pt
+  freeze: encoder_bn
+  geometry_validation:
+    enabled: true
+    tail_ms: [150.0, 300.0, 450.0, 640.0, 850.0]
+    one_per_record: true
+    max_units: 0
+    num_workers: 0
+    min_natural_mean_iou: 0.75
+    missing_penalty_ms: 150.0
+    slope_penalty_ms: 50.0

@@ -1,0 +1,52 @@
+
+==============================================================================
+nshot5_N2 on nshot_test.csv
+==============================================================================
+
+Segmentation
+  class            prec      rec       f1      iou      support
+  background     0.8273   0.6628   0.7360   0.5823        38358
+  p                 nan      nan      nan      nan            0
+  qrs            0.9210   0.9591   0.9396   0.8861        27806
+  t              0.8811   0.9479   0.9133   0.8404        85475
+  mean IoU over the three wave classes  0.8633
+  mean F1 over the three wave classes   0.9265
+  per sample accuracy                   0.8778
+
+Fiducials, all timings in milliseconds
+  landmark        sens    prec     bias      mae       sd      p95    w25ms
+  p_onset          nan     nan      nan      nan      nan      nan      nan
+  p_peak           nan     nan      nan      nan      nan      nan      nan
+  p_offset         nan     nan      nan      nan      nan      nan      nan
+  qrs_onset      1.000   1.000    -1.54     1.71     1.64     4.00    1.000
+  q_peak         0.704   0.921    -1.07     1.19     3.48     2.00    0.991
+  r_peak         0.773   0.732   -11.33    11.42    16.28    44.00    0.775
+  s_peak         0.792   0.580    -2.61     3.97    13.17    34.20    0.940
+  qrs_offset     0.960   0.960     2.43     9.90    12.36    24.00    0.960
+  t_onset        0.667   0.667   -19.19    27.23    34.57    88.10    0.667
+  t_peak         0.853   0.853    15.26    17.91    45.41   134.10    0.853
+  t_offset       0.553   0.553     5.40    27.80    36.21    64.00    0.553
+  boundary MAE 16.66 ms, peak MAE 8.62 ms
+
+Timing response, prediction regressed on reference
+  landmark         slope         r   pred SD ms    ref SD ms
+  p_onset            nan       nan          nan          nan
+  p_offset           nan       nan          nan          nan
+  qrs_onset        1.019     0.970         6.78         6.45
+  qrs_offset       0.253     0.400         8.27        13.07
+  t_onset          0.099     0.279        12.75        35.88
+  t_offset         0.746     0.914        70.94        86.88
+
+Biomarkers, all values in milliseconds
+  biomarker              bias        mae         sd   coverage
+  qrs_duration           3.97      10.57      12.35      1.000
+  qt_interval            6.94      28.36      36.57      1.000
+  t_duration            24.58      44.37      51.54      1.000
+  t_peak_to_end         -9.86      39.71      53.97      1.000
+
+
+geometry and truncation
+  window runs 66 samples past the last landmark (median)
+  beat centre sits 62 samples from the crop centre, IQR 42
+  predicted T offset on / past window edge  4 / 203 of 600
+  predicted T offset on / past read edge    0 / 0 of 600

@@ -1,0 +1,43 @@
+# Evidence-backed stage-one treatment for the external T-offset failure.
+#
+# This keeps the current source-domain pipeline and changes only mechanisms implicated by the
+# completed diagnostics: the bottleneck positional shortcut, static augmentation assignments,
+# one-sided repolarisation duration exposure, and validation blindness to long quiet tails.
+inherit: ml_modelling/configs/pretrain.yaml
+
+run:
+  name: pretrain_toffset_fix
+
+augment:
+  epoch_resample: true
+
+structural_augment:
+  # The source-domain p5, median and p95 of T-peak-to-offset duration are 52, 94 and 220 ms.
+  # A triangular draw over those three internally measured anchors approximates that distribution
+  # while breaking the one-sided long-T prior without consulting Smith2026.
+  repolarisation_stretch_p: 0.35
+  repolarisation_target_ms: [52.0, 94.0, 220.0]
+  # The p5/p95 cross-ratio is about 0.24--4.23. This slightly wider guard prevents
+  # rare coincident T-peak/T-offset annotations from producing extreme resampling factors.
+  repolarisation_alpha_clip: [0.25, 4.5]
+  # About 1.7% of source units have a sub-20-ms descending limb, mostly coincident or
+  # near-coincident landmarks. Do not manufacture a waveform from that degenerate segment.
+  repolarisation_min_source_ms: 20.0
+
+model:
+  attention:
+    # The independently retrained arm cut external T-offset MAE by 59.3 ms and restored the
+    # prediction/reference slope from -0.068 to 0.574. Skip gates remain enabled.
+    bottleneck: false
+    skip_gates: true
+
+train:
+  geometry_validation:
+    enabled: true
+    tail_ms: [150.0, 300.0, 450.0, 640.0, 850.0]
+    one_per_record: true
+    max_units: 0
+    num_workers: 0
+    min_natural_mean_iou: 0.75
+    missing_penalty_ms: 150.0
+    slope_penalty_ms: 50.0

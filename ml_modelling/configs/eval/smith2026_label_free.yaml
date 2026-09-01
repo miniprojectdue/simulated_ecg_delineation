@@ -1,0 +1,11 @@
+# Label-free placement/identity settings for a checkpoint trained with the T-offset treatment.
+# Record sample zero is placed at crop coordinate 618, the median QRS-edge coordinate measured
+# on the source-domain validation loader. No Smith2026 landmark is used to place the input or to
+# select a predicted region.
+inherit: ml_modelling/configs/treatments/pretrain_toffset_fix.yaml
+
+eval:
+  read_pad_ms: -1
+  record_start_at_sample: 618
+  identity_scope: valid
+
