@@ -1,0 +1,34 @@
+# config/pipeline_settings.yaml — parameters for the delineation + curation pipeline.
+
+sampling:
+  fs_hz: 500
+  ms_per_sample: 2.0
+
+leads: [I, II, III, aVR, aVL, aVF, V1, V2, V3, V4, V5, V6]
+reference_lead: II          # rhythm / master R-peak channel
+
+# --- ECGdeli quality-control tiers (qc_review_list.py) ---
+qc:
+  tol_samples: 3            # ignore boundary inversions <= this (trivial wobble)
+  gross_samples: 20         # a boundary inversion above this (>40 ms) is critical
+  qrs_dur_ms: [40, 200]     # critical if QRS duration outside this range
+  qt_ms: [250, 700]         # critical if QT outside this range
+  pr_ms: [80, 400]          # critical if PR outside this range
+  genuine_frac: 0.5         # a (record,lead) unit is a genuine problem if >= this share of its beats are flagged
+
+# --- population-statistics aggregation ---
+aggregation:
+  per_signal: median        # collapse a record's ~13 beats to one value per (record, lead)
+  cohort: mean              # aggregate per-signal values across records
+
+# --- training split (all MedalCare used for training, test is the external MonoAlg3D set) ---
+split:
+  test_and_examples_to: train
+  validation_to: val
+
+# --- global reconciliation (12 leads -> one delineation) ---
+global_reconciliation:
+  onset: earliest           # min across leads       (alt: second_earliest, for tighter boundaries)
+  offset: latest            # max across leads        (alt: second_latest)
+  peaks: median
+  r_peak: master_reference_lead

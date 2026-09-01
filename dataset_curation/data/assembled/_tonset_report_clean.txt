@@ -1,0 +1,5 @@
+rederive_t_onset (foot of ascent, K=0.15)  dataset_curation/data/assembled/clean_units_labels.csv.bak_pre_tonset -> dataset_curation/data/assembled/clean_units_labels.csv
+units                : 194645
+method               : {'foot': 189494, 'degenerate_short': 339, 'missing_signal': 4812}
+T-onset shift (ms)   : median +60   mean +46.9   p10 -40   p90 +124   min -474   max +462
+moved later          : 83.5%   unchanged: 0.6%   moved earlier: 15.9%

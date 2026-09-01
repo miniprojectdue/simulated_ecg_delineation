@@ -1,0 +1,38 @@
+# config/paths.yaml — canonical paths for the MedalCare-XL delineation project.
+# All paths are relative to the repository root (the folder that contains this config/).
+# Scripts resolve the repo root by walking up until they find config/paths.yaml.
+
+repo_root: .
+
+signals:
+  raw_root: WP2_largeDataset_Noise            # 12x5000 raw waveforms (leads x samples)
+  parameter_files: WP2_largeDataset_ParameterFiles
+
+ecgdeli_tool: ECG_TOOL/ECGdeli                 # the ECGdeli MATLAB toolbox clone
+
+ecgdeli_labelling:
+  scripts: ecgdeli_labelling/scripts
+  logs: ecgdeli_labelling/logs
+  manifest: ecgdeli_labelling/data/input/medalcare_manifest.csv
+  fiducials_primary: ecgdeli_labelling/data/primary/medalcare_fiducials_ecgdeli.csv
+  qc_review_list: ecgdeli_labelling/data/qc/medalcare_qc_review_list.csv
+  qc_record_summary: ecgdeli_labelling/data/qc/medalcare_qc_record_summary.csv
+
+dataset_curation:
+  master_labels: dataset_curation/data/assembled/master_labels.csv
+  reconciled_global: dataset_curation/data/global/reconciled_global_fiducials.csv
+  signals_index: dataset_curation/data/review/signals_index.csv
+  require_manual_label: dataset_curation/data/review/require_manual_label.csv
+  require_manual_label_priority: dataset_curation/data/review/require_manual_label_priority.csv
+  audit_samples: dataset_curation/data/audit_samples
+
+statistics:
+  data: statistics/data
+  figures: statistics/figures
+
+reports:
+  dir: reports
+  figures: reports/figures
+
+ml_modelling:
+  root: ml_modelling
